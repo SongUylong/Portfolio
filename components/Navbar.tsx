@@ -2,6 +2,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
+import { Menu } from "lucide-react";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
@@ -46,6 +50,45 @@ export default function Navbar() {
               </motion.div>
             ))}
           </nav>
+        </div>
+        {/* mobile navigation */}
+        <div className="flex flex-1 items-center justify-end space-x-2 md:hidden">
+          <ThemeToggle />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant={"ghost"}
+                size={"icon"}
+                className="hover:bg-accent hover:text-accent-foreground"
+                aria-label="Open Navigation Menu"
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <VisuallyHidden>
+                <SheetTitle>Settings</SheetTitle>
+              </VisuallyHidden>
+              <nav className="flex flex-col gap-6 py-6">
+                <Link href="/" className="pb-6 border-b">
+                  <span className="font-bold text-2xl text-primary">
+                    Uylong Song
+                  </span>
+                </Link>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+        <div className="hidden md:flex flex-1 justify-end">
           <ThemeToggle />
         </div>
       </div>
