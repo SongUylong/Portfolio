@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-
+import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "next-themes";
 const lato = Lato({
   weight: ["300", "400", "700", "900"], // Specify the weights you need
   subsets: ["latin"], // Or other subsets like 'latin-ext', 'cyrillic', etc.
@@ -21,8 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lato.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-background antialiased">{children}</body>
+    <html
+      lang="en"
+      className={`${lato.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen bg-background antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
