@@ -55,30 +55,41 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        fontFamily: {
-          sans: ["var(--font-lato)"],
+      },
+      fontFamily: {
+        sans: ["var(--font-lato)"],
+        serif: ["var(--font-noto-serif)", "serif"],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        keyframes: {
-          "accordion-down": {
-            from: { height: "0" },
-            to: { height: "var(--radix-accordion-content-height)" },
-          },
-          "accordion-up": {
-            from: { height: "var(--radix-accordion-content-height)" },
-            to: { height: "0" },
-          },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
-        animation: {
-          "accordion-down": "accordion-down 0.2s ease-out",
-          "accordion-up": "accordion-up 0.2s ease-out",
+        "flip-forward": {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(180deg)" },
         },
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
+        "flip-back": {
+          "0%": { transform: "rotateY(180deg)" },
+          "100%": { transform: "rotateY(0deg)" },
         },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "flip-forward": "flip-forward 0.6s ease-in-out forwards",
+        "flip-back": "flip-back 0.6s ease-in-out forwards",
+      },
+      chart: {
+        1: "hsl(var(--chart-1))",
+        2: "hsl(var(--chart-2))",
+        3: "hsl(var(--chart-3))",
+        4: "hsl(var(--chart-4))",
+        5: "hsl(var(--chart-5))",
       },
     },
   },

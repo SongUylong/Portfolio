@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardHeader,
 } from "@/components/ui/card";
-
+import AppLayout from "@/components/layout/AppLayout";
 export function EducationSection() {
   const EducationEntries = [
     {
@@ -72,49 +72,51 @@ export function EducationSection() {
     },
   };
   return (
-    <section id="education" className="py-12">
-      <h2 className="text-4xl font-bold mb-10 text-center text-foreground">
-        Education
-      </h2>
-      <motion.div
-        className="relative max-w-3xl mx-auto pl-6 md:pl-8 lg:pl-10"
-        initial="hidden"
-        whileInView="visible"
-        variants={containerVariants}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border md:left-4 lg:left-6" />
-        {EducationEntries.map((entry, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="mb-8 relative pl-8 md:pl-12"
-          >
-            {/* Timeline dot */}
-            <div className="absolute left-[-6px] top-2 h-3 w-3 rounded-full bg-primary ring-4 ring-primary/20 md:left-[10px] lg:left-[18px]"></div>
-            <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-primary">
-                  {entry.degree}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  {entry.institution}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground mb-2">
-                  {entry.dates}
-                </p>
-                <p className="text-xs text-muted-foreground mb-2">
-                  {entry.current}
-                </p>
-                <p className="text-sm text-foreground">{entry.description}</p>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
+    <AppLayout>
+      <section id="education" className="py-12">
+        <h2 className="text-4xl font-bold mb-10 text-center text-foreground">
+          Education
+        </h2>
+        <motion.div
+          className="relative max-w-3xl mx-auto pl-6 md:pl-8 lg:pl-10"
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border md:left-4 lg:left-6" />
+          {EducationEntries.map((entry, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="mb-8 relative pl-8 md:pl-12"
+            >
+              {/* Timeline dot */}
+              <div className="absolute left-[-6px] top-2 h-3 w-3 rounded-full bg-primary ring-4 ring-primary/20 md:left-[10px] lg:left-[18px]"></div>
+              <Card className="hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold text-primary">
+                    {entry.degree}
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    {entry.institution}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {entry.dates}
+                  </p>
+                  <p className="text-xs text-muted-foreground mb-2">
+                    {entry.current}
+                  </p>
+                  <p className="text-sm text-foreground">{entry.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+    </AppLayout>
   );
 }
 export default EducationSection;
