@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ThemeToggle } from "../ThemeToggle";
+import React, { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
@@ -14,12 +14,20 @@ import {
   NavbarLogo,
   MobileNavHeader,
 } from "@/components/ui/resizable-navbar";
-import ThemeWipeSwitcher from "../ui/ThemeWipe";
 import { useThemeWipe } from "@/context/ThemeWipeContext";
 import { useTheme } from "next-themes";
 export const ThemeToggleButton = () => {
   const { theme } = useTheme(); // To display the current theme icon
   const { toggleThemeWipe } = useThemeWipe(); // Get the toggle function from context
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Avoid rendering on the server
+  }
 
   return (
     <button
@@ -47,7 +55,7 @@ export default function ResizeNavbar() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navLinks} />
-          <ThemeToggle />
+          <ThemeToggleButton />
         </NavBody>
 
         <MobileNav>

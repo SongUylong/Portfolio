@@ -62,20 +62,56 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
         },
         "flip-forward": {
-          "0%": { transform: "rotateY(0deg)" },
-          "100%": { transform: "rotateY(180deg)" },
+          "0%": {
+            transform: "rotateY(0deg)",
+          },
+          "100%": {
+            transform: "rotateY(180deg)",
+          },
         },
         "flip-back": {
-          "0%": { transform: "rotateY(180deg)" },
-          "100%": { transform: "rotateY(0deg)" },
+          "0%": {
+            transform: "rotateY(180deg)",
+          },
+          "100%": {
+            transform: "rotateY(0deg)",
+          },
+        },
+        "star-movement-bottom": {
+          "0%": {
+            transform: "translate(0%, 0%)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translate(-100%, 0%)",
+            opacity: "0",
+          },
+        },
+        "star-movement-top": {
+          "0%": {
+            transform: "translate(0%, 0%)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translate(100%, 0%)",
+            opacity: "0",
+          },
         },
       },
       animation: {
@@ -83,6 +119,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "flip-forward": "flip-forward 0.6s ease-in-out forwards",
         "flip-back": "flip-back 0.6s ease-in-out forwards",
+        "star-movement-bottom":
+          "star-movement-bottom linear infinite alternate",
+        "star-movement-top": "star-movement-top linear infinite alternate",
       },
       chart: {
         1: "hsl(var(--chart-1))",

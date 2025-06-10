@@ -1,4 +1,5 @@
-"use client";
+"use client"; // This directive is crucial for all client-side logic in Next.js
+
 import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
@@ -6,12 +7,15 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from "motion/react";
+} from "framer-motion"; // Changed from 'motion/react' to 'framer-motion'
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react"; // Added useEffect
+import { StarBorder } from "./star-border"; // Ensure correct path
+import { useTheme } from "next-themes";
 
+// --- Interfaces ---
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
@@ -50,6 +54,8 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
+// --- Components ---
+
 export const Navbar = ({ children, className }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
@@ -70,7 +76,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     <motion.div
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
-      className={cn("fixed inset-x1 top-2 z-40 w-full", className)}
+      className={cn("fixed inset-x-0 top-2 z-40 w-full", className)} // Corrected inset-x1 to inset-x-0
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -85,6 +91,8 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 };
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
+  const { theme } = useTheme(); // This theme is used for styling, not conditional rendering of a component causing hydration issues.
+
   return (
     <motion.div
       animate={{
@@ -150,6 +158,17 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
 };
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
+  const { theme, systemTheme } = useTheme(); // Get both theme and systemTheme
+  const [mounted, setMounted] = useState(false); // State to track client-side mount
+
+  // Set mounted to true only after the component has mounted on the client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Determine the effective theme for conditional rendering
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
   return (
     <motion.div
       animate={{
@@ -174,7 +193,11 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         className,
       )}
     >
-      {children}
+      {mounted && (
+        <StarBorder as={"div"} className="w-full rounded-full">
+          {children}
+        </StarBorder>
+      )}
     </motion.div>
   );
 };
@@ -236,11 +259,15 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const hoverTimeout = useRef<NodeJS.Timeout>(null);
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null); // Explicitly type as NodeJS.Timeout | null
+
   function handleMouseEnter() {
+    if (hoverTimeout.current !== null) {
+      clearTimeout(hoverTimeout.current);
+    }
     hoverTimeout.current = setTimeout(() => {
       setIsHovered(true);
-    }, 200); // 300ms debounce delay
+    }, 200); // Your comment says 300ms, code is 200ms
   }
 
   function handleMouseLeave() {
@@ -250,6 +277,7 @@ export const NavbarLogo = () => {
     }
     setIsHovered(false);
   }
+
   return (
     <Link
       href="/"
