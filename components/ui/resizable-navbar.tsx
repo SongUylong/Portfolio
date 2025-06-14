@@ -209,7 +209,7 @@ export const MobileNavHeader = ({
   return (
     <div
       className={cn(
-        "flex w-full flex-row items-center justify-between",
+        "flex w-11/12 flex-row items-center justify-between",
         className,
       )}
     >

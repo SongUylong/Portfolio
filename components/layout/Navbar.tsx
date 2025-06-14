@@ -44,7 +44,6 @@ export default function ResizeNavbar() {
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Projects", link: "/projects" },
-    { name: "Skill", link: "/skills" },
     { name: "Contact", link: "/contact" },
   ];
 
