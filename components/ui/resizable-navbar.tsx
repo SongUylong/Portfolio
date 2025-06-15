@@ -91,7 +91,12 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 };
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
-  const { theme } = useTheme(); // This theme is used for styling, not conditional rendering of a component causing hydration issues.
+  const { theme, systemTheme } = useTheme(); // Get both theme and systemTheme
+  const [mounted, setMounted] = useState(false); // State to track client-side mount
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <motion.div
@@ -193,11 +198,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         className,
       )}
     >
-      {mounted && (
-        <StarBorder as={"div"} className="w-full rounded-full">
-          {children}
-        </StarBorder>
-      )}
+      {children}
     </motion.div>
   );
 };

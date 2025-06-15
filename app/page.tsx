@@ -139,36 +139,20 @@ export function NameDemo() {
 export function Description() {
   const words = [
     {
-      text: "Focused",
+      text: "Full",
+      className: "text-primary font-sans",
     },
     {
-      text: " On ",
+      text: " Stack",
+      className: "text-primary font-sans",
     },
     {
-      text: "Performance",
-      className: "",
-    },
-    {
-      text: "  ",
-    },
-    {
-      text: "Security",
-      className: "",
-    },
-    {
-      text: " & ",
-    },
-    {
-      text: "User",
-      className: "text-red-500 dark:text-blue-400",
-    },
-    {
-      text: "Experience",
-      className: "text-red-500 dark:text-blue-400",
+      text: " Developer",
+      className: "text-primary font-sans",
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center mb-5">
+    <div className="flex flex-col items-center justify-center mb-5 font-sans">
       <TypewriterEffect words={words} />
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef, useState } from "react";
 import {
   Card,
@@ -93,7 +93,7 @@ export default function AboutPage() {
     ["#3b82f6", "#22c55e", "#a855f7"], // Blue → Green → Purple
   );
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -101,17 +101,73 @@ export default function AboutPage() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
 
   return (
     <AppLayout>
+      {/* === Skills Section === */}
+      <section id="skills" className="py-12">
+        <SkillsPage />
+      </section>
+
+      {/* === Experience Section === */}
+      <section id="experience" className="py-12">
+        <h2 className="text-4xl font-bold mb-10 text-center text-foreground">
+          Experience
+        </h2>
+
+        <div className="relative max-w-3xl mx-auto pl-6 md:pl-8 lg:pl-10">
+          {/* Animated vertical line */}
+          <motion.div
+            style={{ backgroundColor: lineColor }}
+            className="absolute left-0 top-0 bottom-0 w-0.5 md:left-4 lg:left-6"
+          />
+
+          <motion.div
+            ref={experienceRef}
+            initial="hidden"
+            whileInView="visible"
+            variants={containerVariants}
+            viewport={{ once: false, amount: 0.2 }}
+          >
+            {experienceEntries.map((entry, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="mb-8 relative pl-8 md:pl-12"
+              >
+                <div className="absolute left-[-6px] top-2 h-3 w-3 rounded-full bg-primary ring-4 ring-primary/20 md:left-[10px] lg:left-[18px]" />
+                <Card className="hover:shadow-lg transition-shadow duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-semibold text-primary">
+                      {entry.position}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      {entry.company}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      {entry.dates}
+                    </p>
+                    <p className="text-sm text-foreground">
+                      {entry.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* === Education Section === */}
       <section id="education" className="py-12">
         <h2 className="text-4xl font-bold mb-10 text-center text-foreground">
@@ -173,57 +229,49 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* === Experience Section === */}
-      <section id="experience" className="py-12">
+      {/* === Achievements Section === */}
+      <section id="achievements" className="py-12">
         <h2 className="text-4xl font-bold mb-10 text-center text-foreground">
-          Experience
+          Achievements
         </h2>
-
-        <div className="relative max-w-3xl mx-auto pl-6 md:pl-8 lg:pl-10">
-          {/* Animated vertical line */}
+        <div className="max-w-3xl mx-auto px-4">
           <motion.div
-            style={{ backgroundColor: lineColor }}
-            className="absolute left-0 top-0 bottom-0 w-0.5 md:left-4 lg:left-6"
-          />
-
-          <motion.div
-            ref={experienceRef}
             initial="hidden"
             whileInView="visible"
             variants={containerVariants}
             viewport={{ once: false, amount: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            {experienceEntries.map((entry, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="mb-8 relative pl-8 md:pl-12"
-              >
-                <div className="absolute left-[-6px] top-2 h-3 w-3 rounded-full bg-primary ring-4 ring-primary/20 md:left-[10px] lg:left-[18px]" />
-                <Card className="hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-semibold text-primary">
-                      {entry.position}
-                    </CardTitle>
-                    <CardDescription className="text-muted-foreground">
-                      {entry.company}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {entry.dates}
-                    </p>
-                    <p className="text-sm text-foreground">
-                      {entry.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {educationEntries
+              .filter(entry => entry.description.includes("Achieved") || entry.description.includes("ranking"))
+              .map((entry, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                >
+                  <Card className="hover:shadow-lg transition-shadow duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-xl font-semibold text-primary">
+                        {entry.degree}
+                      </CardTitle>
+                      <CardDescription className="text-muted-foreground">
+                        {entry.institution}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        {entry.dates}
+                      </p>
+                      <p className="text-sm text-foreground">
+                        {entry.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
           </motion.div>
         </div>
       </section>
-      <SkillsPage />
     </AppLayout>
   );
 }

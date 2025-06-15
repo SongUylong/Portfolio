@@ -5,20 +5,10 @@ import {
   BrainCircuit,
   Database,
   LayoutTemplate,
-  TerminalSquare,
-  Network,
   Rocket,
-  Code,
-  Calendar,
-  FileText,
-  User,
-  Clock,
   Wrench,
-  Cloud,
   Group,
   Lightbulb,
-  MessageSquare,
-  ClipboardCheck,
 } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline"; // Make sure this path is correct
 
@@ -110,12 +100,12 @@ const timelineData = [
 
 const Skills = () => {
   return (
-    <section className="dark:text-white text-black py-20 px-4 sm:px-6 lg:px-8 font-sans">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
         {/* Main Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Skills</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">My Skills</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             A dynamic overview of my technical and professional abilities.
           </p>
         </div>
