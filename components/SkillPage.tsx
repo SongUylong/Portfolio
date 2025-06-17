@@ -100,19 +100,23 @@ const timelineData = [
 
 const Skills = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 font-sans">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 font-sans">
       <div className="max-w-7xl mx-auto">
         {/* Main Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">My Skills</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-foreground leading-tight">
+            My Skills
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto px-2 sm:px-0 leading-relaxed">
             A dynamic overview of my technical and professional abilities.
           </p>
         </div>
 
         {/* Radial Orbital Timeline */}
-        <div className="w-full h-[600px] md:h-[800px] flex items-center justify-center">
-          <RadialOrbitalTimeline timelineData={timelineData} />
+        <div className="w-full flex items-center justify-center overflow-hidden">
+          <div className="w-full">
+            <RadialOrbitalTimeline timelineData={timelineData} />
+          </div>
         </div>
       </div>
     </section>

@@ -32,6 +32,7 @@ export default function ContactSection() {
             top: '50%',
             transform: 'translate(-50%, -50%)'
           }}
+          initial={{ opacity: 0 }}
           animate={{
             opacity: isVisible ? 1 : 0,
           }}
@@ -48,7 +49,7 @@ export default function ContactSection() {
           />
         </motion.div>
         <motion.div
-          className='relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[420px] lg:max-w-[520px] mx-auto p-4 sm:p-6 md:p-8 rounded-2xl bg-background/80 backdrop-blur-sm border border-border/50 shadow-2xl'
+          className='relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[420px] lg:max-w-[520px] mx-auto p-4 sm:p-6 md:p-8 rounded-2xl bg-background/80 backdrop-blur-sm border border-white border-border/50 shadow-2xl'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

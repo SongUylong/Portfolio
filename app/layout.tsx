@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Chewy } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { ThemeWipeProvider } from "@/context/ThemeWipeContext";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({
+const chewy = Chewy({
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-chewy",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +25,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} scroll-smooth`}
+      className={`${chewy.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-background antialiased font-sans">
+      <body className="min-h-screen bg-background antialiased">
         <Toaster />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ThemeWipeProvider>{children}</ThemeWipeProvider>

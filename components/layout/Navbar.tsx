@@ -42,7 +42,6 @@ export default function ResizeNavbar() {
   const pathname = usePathname();
   const navLinks = [
     { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
     { name: "Projects", link: "/projects" },
     { name: "Contact", link: "/contact" },
   ];
@@ -85,7 +84,7 @@ export default function ResizeNavbar() {
                           <Link
                             key={link.name}
                             href={link.link}
-                            className={`text-lg p-4 pl-8 font-medium hover:text-primary transition-colors  ${isActive && " bg-gray-100 dark:bg-neutral-800 rounded-full"}`}
+                            className={`text-lg p-4 pl-8 font-medium hover:text-primary transition-colors  ${isActive && " bg-primary/20 text-primary rounded-full"}`}
                           >
                             {link.name}
                           </Link>

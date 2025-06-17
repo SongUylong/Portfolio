@@ -57,8 +57,8 @@ module.exports = {
         ring: "hsl(var(--ring))",
       },
       fontFamily: {
-        sans: ["var(--font-lato)"],
-        serif: ["var(--font-noto-serif)", "serif"],
+        sans: ["var(--font-chewy)"],
+        serif: ["var(--font-chewy)"],
       },
       keyframes: {
         "accordion-down": {

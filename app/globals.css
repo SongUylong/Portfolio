@@ -3,61 +3,77 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-lato), sans-serif;
+  font-family: var(--font-chewy), sans-serif;
 }
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* Light theme using the new color scheme */
+    --background: 0 0% 100%; /* White background for light theme */
+    --foreground: 0 0% 0%; /* #000000 - Black text */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 0%; /* Black text on cards */
+    --popover: 0 0% 100%; /* White popovers */
+    --popover-foreground: 0 0% 0%; /* Black text on popovers */
+    --primary: 19 100% 50%; /* #FF6500 - Orange primary */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --secondary: 217 69% 22%; /* #1E3E62 - Blue secondary */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+    --muted: 217 100% 8%; /* #0B192C - Dark blue muted */
+    --muted-foreground: 0 0% 100%; /* White text on muted */
+    --accent: 19 100% 50%; /* #FF6500 - Orange accent */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --destructive: 0 84.2% 60.2%; /* Keep existing destructive color */
+    --destructive-foreground: 0 0% 98%; /* Light text on destructive */
+    --border: 217 69% 22%; /* #1E3E62 - Blue borders */
+    --input: 217 69% 22%; /* #1E3E62 - Blue input borders */
+    --ring: 19 100% 50%; /* #FF6500 - Orange focus ring */
+    --chart-1: 19 100% 50%; /* #FF6500 */
+    --chart-2: 217 69% 22%; /* #1E3E62 */
+    --chart-3: 217 100% 8%; /* #0B192C */
+    --chart-4: 0 0% 0%; /* #000000 */
+    --chart-5: 19 100% 40%; /* Darker orange variant */
     --radius: 0.5rem;
+    --border-color-1: #FF5613;
+    --border-color-2: #9F4EFF;
+    --border-color-3: #2196F3;
+    --border-bg-color: #f5f5f5;
+    --card-bg-color: #fff;
+    --shadow-color: #e0e0e0;
+    --text-color: #242424;
+    --hover-text-color-1: #000;
+    --hover-text-color-2: #fff;
+    --hover-text-color-3: #fff;
+    --font-family: 'Roboto Mono', monospace;
+    --rtl-font-family: 'Montserrat', sans-serif;
+    --pattern-color1: rgba(200,200,200,0.10);
+    --pattern-color2: rgba(220,220,220,0.10);
   }
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* Dark theme using the new color scheme */
+    --background: 217 100% 8%; /* #0B192C - Dark blue background */
+    --foreground: 0 0% 100%; /* White text */
+    --card: 217 69% 22%; /* #1E3E62 - Blue cards */
+    --card-foreground: 0 0% 100%; /* White text on cards */
+    --popover: 217 69% 22%; /* #1E3E62 - Blue popovers */
+    --popover-foreground: 0 0% 100%; /* White text on popovers */
+    --primary: 19 100% 50%; /* #FF6500 - Orange primary */
+    --primary-foreground: 0 0% 0%; /* Black text on primary */
+    --secondary: 0 0% 0%; /* #000000 - Black secondary */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
+    --muted: 0 0% 0%; /* #000000 - Black muted */
+    --muted-foreground: 0 0% 100%; /* White text on muted */
+    --accent: 19 100% 50%; /* #FF6500 - Orange accent */
+    --accent-foreground: 0 0% 0%; /* Black text on accent */
+    --destructive: 0 62.8% 30.6%; /* Keep existing destructive color */
+    --destructive-foreground: 0 0% 98%; /* Light text on destructive */
+    --border: 19 100% 50%; /* #FF6500 - Orange borders */
+    --input: 217 69% 22%; /* #1E3E62 - Blue input borders */
+    --ring: 19 100% 50%; /* #FF6500 - Orange focus ring */
+    --chart-1: 19 100% 50%; /* #FF6500 */
+    --chart-2: 217 69% 22%; /* #1E3E62 */
+    --chart-3: 0 0% 0%; /* #000000 */
+    --chart-4: 217 100% 8%; /* #0B192C */
+    --chart-5: 19 100% 40%; /* Darker orange variant */ --border-color-1: #DAFF3E; --border-color-2: #9F4EFF; --border-color-3: #2196F3; --border-bg-color: #242424; --card-bg-color: #000; --shadow-color: #242424; --text-color: #f5f5f5; --hover-text-color-1: #242424; --hover-text-color-2: #000; --hover-text-color-3: #242424; --font-family: 'Roboto Mono', monospace; --rtl-font-family: 'Montserrat', sans-serif; --pattern-color1: rgba(230,230,230,0.15); --pattern-color2: rgba(240,240,240,0.15);
   }
 }
 
