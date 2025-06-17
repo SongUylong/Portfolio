@@ -84,7 +84,7 @@ export default function ResizeNavbar() {
                           <Link
                             key={link.name}
                             href={link.link}
-                            className={`text-lg p-4 pl-8 font-medium hover:text-primary transition-colors  ${isActive && " bg-primary/20 text-primary rounded-full"}`}
+                            className={`text-xl p-4 pl-8 font-medium hover:text-primary transition-colors  ${isActive && " bg-primary/20 text-primary rounded-full"}`}
                           >
                             {link.name}
                           </Link>

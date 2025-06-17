@@ -67,17 +67,17 @@ export function SubmissionForm({ handleVisible }: SubmissionFormProps) {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xs">First Name</FormLabel>
+                <FormLabel className="text-lg font-medium">First Name</FormLabel>
                 <FormControl>
-                  <Input {...field} className="h-8 text-sm" />
+                  <Input {...field} className="h-10 text-base" />
                 </FormControl>
-                <FormMessage className="text-xs" />
+                <FormMessage className="text-sm" />
               </FormItem>
             )}
           />
@@ -86,11 +86,11 @@ export function SubmissionForm({ handleVisible }: SubmissionFormProps) {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xs">Last Name</FormLabel>
+                <FormLabel className="text-lg font-medium">Last Name</FormLabel>
                 <FormControl>
-                  <Input {...field} className="h-8 text-sm" />
+                  <Input {...field} className="h-10 text-base" />
                 </FormControl>
-                <FormMessage className="text-xs" />
+                <FormMessage className="text-sm" />
               </FormItem>
             )}
           />
@@ -100,11 +100,11 @@ export function SubmissionForm({ handleVisible }: SubmissionFormProps) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-xs">Email</FormLabel>
+              <FormLabel className="text-lg font-medium">Email</FormLabel>
               <FormControl>
-                <Input {...field} className="h-8 text-sm" />
+                <Input {...field} className="h-10 text-base" />
               </FormControl>
-              <FormMessage className="text-xs" />
+              <FormMessage className="text-sm" />
             </FormItem>
           )}
         />
@@ -113,14 +113,14 @@ export function SubmissionForm({ handleVisible }: SubmissionFormProps) {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-xs">Your message</FormLabel>
+              <FormLabel className="text-lg font-medium">Your message</FormLabel>
               <FormControl>
                 <Textarea
                   {...field}
-                  className="min-h-[80px] text-sm"
+                  className="min-h-[100px] text-base"
                 />
               </FormControl>
-              <FormMessage className="text-xs" />
+              <FormMessage className="text-sm" />
             </FormItem>
           )}
         />
@@ -128,7 +128,7 @@ export function SubmissionForm({ handleVisible }: SubmissionFormProps) {
           type="submit"
           disabled={form.formState.isSubmitting}
           aria-label='Load'
-          className='relative ml-1 flex h-8 scale-100 select-none appearance-none items-center justify-center overflow-hidden rounded-lg border border-zinc-950/10 bg-white px-3 text-xs text-zinc-950 focus-visible:ring-2 active:scale-[0.96] dark:border-zinc-50/10'
+          className='relative ml-1 flex h-10 scale-100 select-none appearance-none items-center justify-center overflow-hidden rounded-lg border border-zinc-950/10 bg-white px-4 text-base font-medium text-zinc-950 focus-visible:ring-2 active:scale-[0.96] dark:border-zinc-50/10'
         >
           <TextMorph>{form.formState.isSubmitting ? "Sending..." : "Send Message"}</TextMorph>
         </Button>

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { TypewriterCycle } from "@/components/ui/typewriter-cycle";
 import { StarBorder } from "@/components/ui/star-border";
 import { GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 export function SocialLinks() {
   return (
@@ -103,6 +104,20 @@ export function Description() {
 
 export function NameDemo() {
   const { theme } = useTheme();
+  const router = useRouter();
+
+  const downloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/UylongSong.pdf';
+    link.download = 'Uylong Song.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleContactMe = () => {
+    router.push('/contact');
+  };
 
   return (
     <motion.div
@@ -140,15 +155,21 @@ export function NameDemo() {
         delectus labore esse fugiat quod sequi corporis quis unde eligendi.
       </span>
       <div className="flex space-x-4 mb-5">
-        <button className="bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90 transition-colors font-medium">
+        <button 
+          onClick={handleContactMe}
+          className="bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90 transition-colors font-medium"
+        >
           Contact Me
         </button>
-        <button className="bg-secondary text-secondary-foreground px-4 py-2 rounded hover:bg-secondary/90 transition-colors font-medium">
+        <button 
+          onClick={downloadCV}
+          className="bg-secondary text-secondary-foreground px-4 py-2 rounded hover:bg-secondary/90 transition-colors font-medium"
+        >
           Download CV
         </button>
       </div>
       <div className="flex justify-center mb-5">
-        <SocialLinks />``
+        <SocialLinks />
       </div>
       <div className="w-[40rem] h-40 relative">
         {/* Gradients */}
@@ -176,7 +197,7 @@ export function NameDemo() {
 
 export function HeroSection() {
   return (
-    <section className="flex flex-col items-center justify-center mt-20">
+    <section className="flex flex-col items-center justify-center sm:mt-20 ">
       <NameDemo />
     </section>
   );

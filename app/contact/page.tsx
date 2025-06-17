@@ -24,7 +24,7 @@ export default function ContactSection() {
 
   return (
     <AppLayout>
-      <section id="contact" className="py-12 md:py-20 relative min-h-screen w-full flex items-center justify-center px-4">
+      <section id="contact" className="py-12 md:py-20 relative min-h-screen w-full flex items-center justify-center ">
         <motion.div
           className='pointer-events-none absolute w-[290px] h-[500px] sm:w-[330px] sm:h-[450px] md:w-[430px] md:h-[530px] lg:w-[530px] lg:h-[550px] -z-10'
           style={{
@@ -49,13 +49,13 @@ export default function ContactSection() {
           />
         </motion.div>
         <motion.div
-          className='relative z-10 w-full max-w-[280px] sm:max-w-[320px] md:max-w-[420px] lg:max-w-[520px] mx-auto p-4 sm:p-6 md:p-8 rounded-2xl bg-background/80 backdrop-blur-sm border border-white border-border/50 shadow-2xl'
+          className='relative z-10 w-full max-w-[100%] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[520px] mx-auto p-4 sm:p-6 md:p-8 rounded-2xl bg-background/80 backdrop-blur-sm border border-white border-border/50 shadow-2xl'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center text-foreground">
             Get in Touch
           </h2>
           <SubmissionForm handleVisible={handleVisible} />
@@ -67,7 +67,7 @@ export default function ContactSection() {
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="LinkedIn Profile"
             >
-              <Linkedin className="h-7 w-7" />
+              <Linkedin className="h-8 w-8" />
             </a>
             <a
               href="https://github.com/yourusername"
@@ -76,14 +76,14 @@ export default function ContactSection() {
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="GitHub Profile"
             >
-              <Github className="h-7 w-7" />
+              <Github className="h-8 w-8" />
             </a>
             <a
               href="mailto:your.email@example.com"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Send Email"
             >
-              <Mail className="h-7 w-7" />
+              <Mail className="h-8 w-8" />
             </a>
           </div>
         </motion.div>

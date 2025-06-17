@@ -14,7 +14,7 @@ interface TimelineItem {
   icon: React.ElementType;
   relatedIds: number[];
   status: "completed" | "in-progress" | "pending";
-  energy: number;
+  skillLevel: number;
 }
 
 interface RadialOrbitalTimelineProps {
@@ -227,16 +227,16 @@ export default function RadialOrbitalTimeline({
                   }`}
                   style={{
                     background: `radial-gradient(circle, rgba(var(--primary),0.2) 0%, rgba(var(--primary),0) 70%)`,
-                    width: `${(item.energy * 0.3 + 24)}px`,
-                    height: `${(item.energy * 0.3 + 24)}px`,
-                    left: `-${(item.energy * 0.3 + 24 - 32) / 2}px`,
-                    top: `-${(item.energy * 0.3 + 24 - 32) / 2}px`,
+                    width: `${(item.skillLevel * 0.3 + 24)}px`,
+                    height: `${(item.skillLevel * 0.3 + 24)}px`,
+                    left: `-${(item.skillLevel * 0.3 + 24 - 32) / 2}px`,
+                    top: `-${(item.skillLevel * 0.3 + 24 - 32) / 2}px`,
                   }}
                 ></div>
 
                 <div
                   className={`
-                  w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-full flex items-center justify-center
+                  w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center
                   ${
                     isExpanded
                       ? "bg-primary text-primary-foreground"
@@ -256,13 +256,13 @@ export default function RadialOrbitalTimeline({
                   ${isExpanded ? "scale-125 sm:scale-150" : ""}
                 `}
                 >
-                  <Icon size={screenWidth < 640 ? 10 : screenWidth < 1024 ? 12 : 16} />
+                  <Icon size={screenWidth < 640 ? 14 : screenWidth < 1024 ? 18 : 24} />
                 </div>
 
                 <div
                   className={`
-                  absolute top-8 sm:top-10 lg:top-12 whitespace-nowrap
-                  text-xs sm:text-xs lg:text-xs font-semibold tracking-wider
+                  absolute top-10 sm:top-12 lg:top-14 whitespace-nowrap
+                  text-sm sm:text-base lg:text-base font-semibold tracking-wider
                   transition-all duration-300
                   ${isExpanded ? "text-foreground scale-110 sm:scale-125" : "text-muted-foreground"}
                 `}
@@ -278,7 +278,7 @@ export default function RadialOrbitalTimeline({
                 </div>
 
                 {isExpanded && (
-                  <Card className="absolute top-16 sm:top-20 left-1/2 -translate-x-1/2 w-56 sm:w-64 lg:w-72 bg-background/90 backdrop-blur-lg border-primary/30 shadow-xl shadow-primary/10 overflow-visible max-w-[calc(100vw-2rem)]">
+                  <Card className="absolute top-18 sm:top-22 left-1/2 -translate-x-1/2 w-56 sm:w-64 lg:w-72 bg-background/90 backdrop-blur-lg border-primary/30 shadow-xl shadow-primary/10 overflow-visible max-w-[calc(100vw-2rem)]">
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-primary/50"></div>
                     <CardHeader className="pb-2 px-3 sm:px-6">
                       <div className="flex justify-between items-center">
@@ -308,14 +308,14 @@ export default function RadialOrbitalTimeline({
                         <div className="flex justify-between items-center text-xs mb-1">
                           <span className="flex items-center text-muted-foreground">
                             <Zap size={10} className="mr-1" />
-                            Energy Level
+                            Expertise Skill Level
                           </span>
-                          <span className="font-mono text-foreground">{item.energy}%</span>
+                          <span className="font-mono text-foreground">{item.skillLevel}%</span>
                         </div>
                         <div className="w-full h-1 bg-primary/10 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-gradient-to-r from-primary to-primary/60"
-                            style={{ width: `${item.energy}%` }}
+                            style={{ width: `${item.skillLevel}%` }}
                           ></div>
                         </div>
                       </div>
