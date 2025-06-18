@@ -9,13 +9,14 @@ import { TypewriterCycle } from "@/components/ui/typewriter-cycle";
 import { StarBorder } from "@/components/ui/star-border";
 import { GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
+import { MdMail } from "react-icons/md";
 
 export function SocialLinks() {
   return (
     <div className="flex space-x-4">
       {/* GitHub */}
       <a
-        href="https://github.com/yourusername"
+        href="https://github.com/SongUylong"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors"
@@ -24,38 +25,9 @@ export function SocialLinks() {
         <span>GitHub</span>
       </a>
 
-      {/* Twitter */}
-      <a
-        href="https://twitter.com/yourusername"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors"
-      >
-        <TwitterLogoIcon className="w-5 h-5" />
-        <span>Twitter</span>
-      </a>
-
-      {/* Facebook */}
-      <a
-        href="https://facebook.com/yourusername"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        >
-          <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.4 3h-1.8v7A10 10 0 0022 12z" />
-        </svg>
-        <span>Facebook</span>
-      </a>
-
       {/* LinkedIn */}
       <a
-        href="https://linkedin.com/in/yourusername"
+        href="https://kh.linkedin.com/in/uylong-song-9683aa2aa"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors"
@@ -70,6 +42,15 @@ export function SocialLinks() {
         </svg>
         <span>LinkedIn</span>
       </a>
+      <a
+        href="mailto:uylongsong@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors"
+      >
+        <MdMail className="h-6 w-6" />
+        <span>Email</span>
+      </a>
     </div>
   );
 }
@@ -77,19 +58,18 @@ export function SocialLinks() {
 export function Description() {
   const developerTitles = [
     "Full Stack Developer",
-    "Frontend Developer", 
+    "Frontend Developer",
     "Backend Developer",
     "React Developer",
     "Next.js Developer",
     "TypeScript Developer",
-    "JavaScript Developer",
     "Web Developer"
   ];
 
   return (
     <div className="flex flex-col items-center justify-center mb-5 font-sans">
       <div className="text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center text-primary">
-        <TypewriterCycle 
+        <TypewriterCycle
           texts={developerTitles}
           typeSpeed={100}
           deleteSpeed={50}
@@ -133,7 +113,7 @@ export function NameDemo() {
         particleSize={1}
         particleDensity={2}
       />
-      <StarBorder 
+      <StarBorder
         className="mb-5"
         color={theme === "dark" ? "#ffffff" : "#000000"}
         speed="2s"
@@ -150,18 +130,16 @@ export function NameDemo() {
 
       <Description />
       <span className="text-center inline-block py-1.5 px-3 rounded-lg md:text-lg font-semibold text-foreground mb-5">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, ea!
-        Corrupti facere nostrum placeat, aut officiis dolor velit, quidem sint
-        delectus labore esse fugiat quod sequi corporis quis unde eligendi.
+        I love turning ideas into engaging digital experiences that make a difference. Whether collaborating with teams or solving tough problems, I'm driven by curiosity and a passion for creating products that truly help people. Let's build something impactful together!
       </span>
       <div className="flex space-x-4 mb-5">
-        <button 
+        <button
           onClick={handleContactMe}
           className="bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90 transition-colors font-medium"
         >
           Contact Me
         </button>
-        <button 
+        <button
           onClick={downloadCV}
           className="bg-secondary text-secondary-foreground px-4 py-2 rounded hover:bg-secondary/90 transition-colors font-medium"
         >
