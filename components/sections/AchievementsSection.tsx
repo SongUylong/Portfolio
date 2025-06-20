@@ -3,44 +3,34 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { InfoCard } from "@/components/ui/info-card";
 
-const educationEntries = [
+const achievements = [
   {
-    degree: "Bachelor of Management Information Systems",
-    institution: "Paragon International University",
-    dates: "2024 - Present",
-    current: "Junior",
+    title: "The Best Presentation Skill",
+    date: "Aug 2024",
     description:
-      "Equipped with technical and business skills to solve real-world problems with technology. Learning about data management, software development, networks, and cybersecurity, while also gaining insight into business strategy and decision-making.",
+      "Awarded Best Presentation Skills at the ACIYLS ASEAN-China-India Youth Leadership Summit 2024. Our team was honored to be in the Top 4 overall, presenting in front of international youth leaders and judges. A memorable experience that fostered teamwork, leadership, and growth.",
+    image: "/award.jpg",
   },
   {
-    degree: "High School Diploma",
-    institution: "The Westline School",
-    dates: "2017 - 2023",
-    current: "Graduated",
+    title: "ASEAN Data Science Explorers (DSE) Finalist",
+    date: "Jul 2024",
     description:
-      "Achieved a score of 99.5 and earned a Grade A, ranking within the top 1% on the national exam of Cambodia.",
+      "Selected as a finalist in the ASEAN Data Science Explorers competition, recognized for excellence in problem solving and sustainability. Developed data-driven solutions to address regional challenges and collaborated with talented peers from across Southeast Asia.",
+    image: "/asean.png",
   },
   {
-    degree: "TOEFL ITP Certification",
-    institution: "Australian Centre for Education",
-    dates: "2022 - 2023",
-    current: "Completed",
-    description: "Achieved a TOEFL ITP score of 532.",
-  },
-  {
-    degree: "IELTS Certification",
-    institution: "Australian Centre for Education",
-    dates: "2022 - 2023",
-    current: "Completed",
-    description: "Achieved an IELTS score of 6.",
-  },
-  {
-    degree: "Certified Web Developer",
-    institution: "Instinct Institute",
-    dates: "June 2023 - Dec 2023",
-    current: "Graduated",
+    title: "Techno Innovation Challenge Finalist",
+    date: "May 2024",
     description:
-      "Learned to develop responsive web apps with front-end and back-end integration using Express.js and React.js.",
+      "Finalist in the Techno Innovation Challenge after two months of intensive training. Designed and pitched innovative tech solutions, gaining valuable experience in entrepreneurship, teamwork, and technical development.",
+    image: "/techo.jpg",
+  },
+  {
+    title: "Full Academic Scholarship",
+    date: "Jan 2023",
+    description:
+      "Received a full academic scholarship at Paragon International University, awarded for outstanding academic performance and leadership potential. This scholarship has enabled me to pursue higher education and further develop my skills and knowledge.",
+    image:"/scholar.jpg"
   },
 ];
 
@@ -75,46 +65,27 @@ export function AchievementsSection() {
           viewport={{ once: false, amount: 0.2 }}
           className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center"
         >
-          {educationEntries
-            .filter(entry => entry.description.includes("Achieved") || entry.description.includes("ranking"))
-            .map((entry, index) => {
-              // Map achievements to appropriate images
-              const getAchievementImage = (degree: string) => {
-                if (degree.includes("High School")) {
-                  return "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1920&auto=format&fit=crop";
-                } else if (degree.includes("TOEFL")) {
-                  return "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1920&auto=format&fit=crop";
-                } else if (degree.includes("IELTS")) {
-                  return "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1920&auto=format&fit=crop";
-                }
-                return "https://images.unsplash.com/photo-1567777285486-8af9bfd5d7db?q=80&w=1920&auto=format&fit=crop";
-              };
-
-              return (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                >
-                  <InfoCard
-                    image={getAchievementImage(entry.degree)}
-                    title={entry.degree}
-                    description={entry.description}
-                    borderColor="var(--border-color-1)"
-                    borderBgColor="var(--border-bg-color)"
-                    cardBgColor="var(--card-bg-color)"
-                    shadowColor="var(--shadow-color)"
-                    textColor="var(--text-color)"
-                    hoverTextColor="var(--hover-text-color-1)"
-                    fontFamily="var(--font-family)"
-                    rtlFontFamily="var(--rtl-font-family)"
-                    effectBgColor="var(--border-color-1)"
-                    patternColor1="var(--pattern-color1)"
-                    patternColor2="var(--pattern-color2)"
-                    contentPadding="14.3px 16px"
-                  />
-                </motion.div>
-              );
-            })}
+          {achievements.map((achievement, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <InfoCard
+                image={achievement.image}
+                title={achievement.title}
+                description={`${achievement.description} (${achievement.date})`}
+                borderColor="var(--border-color-1)"
+                borderBgColor="var(--border-bg-color)"
+                cardBgColor="var(--card-bg-color)"
+                shadowColor="var(--shadow-color)"
+                textColor="var(--text-color)"
+                hoverTextColor="var(--hover-text-color-1)"
+                fontFamily="var(--font-family)"
+                rtlFontFamily="var(--rtl-font-family)"
+                effectBgColor="var(--border-color-1)"
+                patternColor1="var(--pattern-color1)"
+                patternColor2="var(--pattern-color2)"
+                contentPadding="5px 15px"
+              />
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

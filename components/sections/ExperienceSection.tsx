@@ -85,6 +85,24 @@ const experienceEntries = [
     image: "/cfc.png",
     url: "https://codeforcambodia.com",
   },
+  {
+    position: "Ecommerce Website ",
+    company: "Soriya Pearl",
+    dates: "May 2024 ~ Present",
+    description: (
+      <BulletPointCycle
+        points={[
+          "Developed a complete e-commerce solution using WordPress, Elementor, and WooCommerce.",
+          "Built an online store for selling high-quality pearls to jewelry businesses.",
+          "Customized the website design and functionality to create a unique brand experience.",
+          "Ensured a seamless and secure checkout process by integrating payment gateways.",
+          "Focused on creating a responsive design for optimal viewing on all devices.",
+        ]}
+      />
+    ),
+    image: "/soriyapearl.png",
+    url: "https://soriyapearl.com/",
+  },
 ];
 
 export function ExperienceSection() {
@@ -135,7 +153,7 @@ export function ExperienceSection() {
                   <CardCurtainRevealTitle className="text-2xl font-medium tracking-tight">
                     {entry.position}
                   </CardCurtainRevealTitle>
-                  <CardCurtainRevealDescription className="my-4">
+                  <CardCurtainRevealDescription className="my-4 ">
                     <p className="text-sm text-muted-foreground mb-2">
                       {entry.company} • {entry.dates}
                     </p>

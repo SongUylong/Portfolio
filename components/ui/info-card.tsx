@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 // RTL detection for Hebrew/Arabic
 function isRTL(text: string) {
@@ -122,19 +123,19 @@ export const InfoCard: React.FC<InfoCardProps> = ({
           boxSizing: "border-box",
           backgroundImage: pattern,
           backgroundSize: "20.84px 20.84px",
-          padding: "0 0 8px 0",
+          padding: 0,
         }}
       >
-        <div style={{ width: "100%", position: "relative", overflow: "hidden" }}>
-          <img
+        <div style={{ width: "100%", height: 180, position: "relative", overflow: "hidden" }}>
+          <Image
             src={image}
             alt={title}
+            fill
             style={{
-              width: "100%",
-              height: "100%",
               objectFit: "cover",
               display: "block",
             }}
+            sizes="(max-width: 600px) 100vw, 354px"
           />
         </div>
         <div
@@ -153,7 +154,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
               fontWeight: "bold",
               letterSpacing: "-.01em",
               lineHeight: "normal",
-              marginBottom: 5,
+              marginBottom: 0,
               color: hovered ? hoverTextColor : textColor,
               transition: "color 0.3s ease",
               position: "relative",
@@ -187,7 +188,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
                 position: "absolute",
                 left: -4,
                 right: -4,
-                top: -4,
+                top: -2,
                 bottom: -4,
                 zIndex: 0,
                 backgroundColor: effectBgColor,
