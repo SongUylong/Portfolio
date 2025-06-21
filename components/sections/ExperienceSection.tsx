@@ -10,11 +10,16 @@ import {
   CardCurtain,
 } from "@/components/ui/card-curtain-reveal";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles } from "lucide-react";
 import { TypewriterCycle } from "@/components/ui/typewriter-cycle";
 
-// Helper component to cycle bullet points
-function BulletPointCycle({ points, className }: { points: string[]; className?: string }) {
+function BulletPointCycle({
+  points,
+  className,
+}: {
+  points: { icon: React.ReactNode; text: string }[];
+  className?: string;
+}) {
   const [index, setIndex] = React.useState(0);
   const [fade, setFade] = React.useState(true);
   const groupSize = 2;
@@ -36,12 +41,17 @@ function BulletPointCycle({ points, className }: { points: string[]; className?:
   const current = points.slice(start, start + groupSize);
   // Always render 2 items for consistent height
   const padded = [...current];
-  while (padded.length < groupSize) padded.push("");
+  while (padded.length < groupSize) padded.push({ icon: null, text: "" });
   return (
     <ul
-      className={`list-disc pl-5 space-y-1 text-sm transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'} ${className || ''}`}
+      className={`space-y-3 text-sm transition-opacity duration-300 ${fade ? "opacity-100" : "opacity-0"} ${className || ""}`}
     >
-      {padded.map((pt, i) => <li key={i} className={pt ? undefined : 'invisible'}>{pt || '.'}</li>)}
+      {padded.map((item, i) => (
+        <li key={i} className={`flex items-start gap-3 ${item.text ? undefined : "invisible"}`}>
+          {item.icon && <span className="flex-shrink-0 mt-0.5">{item.icon}</span>}
+          <span dangerouslySetInnerHTML={{ __html: item.text || "." }} />
+        </li>
+      ))}
     </ul>
   );
 }
@@ -54,12 +64,30 @@ const experienceEntries = [
     description: (
       <BulletPointCycle
         points={[
-          "Designed and developed the entire web application from frontend to backend using Next.js, Tailwind CSS.",
-          "Created highly responsive, SEO-friendly, and fast-loading user interfaces, resulting in strong SEO rankings and excellent performance scores.",
-          "Built robust backend API integrations and implemented server-side rendering and static generation for optimal performance and dynamic content delivery.",
-          "Managed global and local application state efficiently using Zustand, ensuring smooth and scalable state management.",
-          "Architected and implemented new features across the stack, delivering a seamless and engaging user experience.",
-          "Utilized built-in methods for routing and data fetching with TypeScript for type safety and maintainability."
+          {
+            icon: <Code className="w-4 h-4 text-blue-500" />,
+            text: "Designed and developed the entire web application from <em class='text-blue-400 font-medium'>frontend to backend</em> using <em class='text-green-400 font-medium'>Next.js</em>, <em class='text-cyan-400 font-medium'>Tailwind CSS</em>."
+          },
+          {
+            icon: <Zap className="w-4 h-4 text-yellow-500" />,
+            text: "Created highly <em class='text-yellow-400 font-medium'>responsive</em>, <em class='text-green-400 font-medium'>SEO-friendly</em>, and <em class='text-purple-400 font-medium'>fast-loading</em> user interfaces, resulting in strong SEO rankings and excellent performance scores."
+          },
+          {
+            icon: <Server className="w-4 h-4 text-indigo-500" />,
+            text: "Built robust <em class='text-indigo-400 font-medium'>backend API integrations</em> and implemented <em class='text-orange-400 font-medium'>server-side rendering</em> and <em class='text-teal-400 font-medium'>static generation</em> for optimal performance."
+          },
+          {
+            icon: <Sparkles className="w-4 h-4 text-purple-500" />,
+            text: "Managed global and local application state efficiently using <em class='text-purple-400 font-medium'>Zustand</em>, ensuring smooth and <em class='text-pink-400 font-medium'>scalable state management</em>."
+          },
+          {
+            icon: <Palette className="w-4 h-4 text-rose-500" />,
+            text: "Architected and implemented new features across the stack, delivering a <em class='text-rose-400 font-medium'>seamless</em> and <em class='text-amber-400 font-medium'>engaging user experience</em>."
+          },
+          {
+            icon: <Shield className="w-4 h-4 text-emerald-500" />,
+            text: "Utilized built-in methods for routing and data fetching with <em class='text-emerald-400 font-medium'>TypeScript</em> for <em class='text-blue-400 font-medium'>type safety</em> and <em class='text-violet-400 font-medium'>maintainability</em>."
+          },
         ]}
       />
     ),
@@ -73,12 +101,30 @@ const experienceEntries = [
     description: (
       <BulletPointCycle
         points={[
-          "Built responsive and animated user interfaces using React.js and Tailwind CSS, resulting in a 30% improvement in load times.",
-          "Developed new features for web applications using React, increasing application functionality by 25%.",
-          "Worked with backend APIs to fetch and display data dynamically, enriching the user experience.",
-          "Collaborated effectively with a team and adapted to the startup environment.",
-          "Utilized Git for version control, collaborating through feature branches, team-based development workflow.",
-          "Communicated with stakeholders to gather requirements and deliver solutions."
+          {
+            icon: <Palette className="w-4 h-4 text-blue-500" />,
+            text: "Built <em class='text-blue-400 font-medium'>responsive</em> and <em class='text-purple-400 font-medium'>animated</em> user interfaces using <em class='text-cyan-400 font-medium'>React.js</em> and <em class='text-teal-400 font-medium'>Tailwind CSS</em>, resulting in a <em class='text-green-400 font-bold'>30% improvement</em> in load times."
+          },
+          {
+            icon: <Code className="w-4 h-4 text-green-500" />,
+            text: "Developed new features for web applications using <em class='text-green-400 font-medium'>React</em>, increasing application functionality by <em class='text-yellow-400 font-bold'>25%</em>."
+          },
+          {
+            icon: <Server className="w-4 h-4 text-indigo-500" />,
+            text: "Worked with <em class='text-indigo-400 font-medium'>backend APIs</em> to fetch and display data <em class='text-orange-400 font-medium'>dynamically</em>, enriching the user experience."
+          },
+          {
+            icon: <Users className="w-4 h-4 text-pink-500" />,
+            text: "Collaborated effectively with a <em class='text-pink-400 font-medium'>team</em> and adapted to the <em class='text-violet-400 font-medium'>startup environment</em>."
+          },
+          {
+            icon: <GitBranch className="w-4 h-4 text-orange-500" />,
+            text: "Utilized <em class='text-orange-400 font-medium'>Git</em> for version control, collaborating through <em class='text-yellow-400 font-medium'>feature branches</em>, team-based development workflow."
+          },
+          {
+            icon: <Users className="w-4 h-4 text-emerald-500" />,
+            text: "Communicated with <em class='text-emerald-400 font-medium'>stakeholders</em> to gather requirements and deliver solutions."
+          },
         ]}
       />
     ),
@@ -92,11 +138,22 @@ const experienceEntries = [
     description: (
       <BulletPointCycle
         points={[
-          "Developed a complete e-commerce solution using WordPress, Elementor, and WooCommerce.",
-          "Built an online store for selling high-quality pearls to jewelry businesses.",
-          "Customized the website design and functionality to create a unique brand experience.",
-          "Ensured a seamless and secure checkout process by integrating payment gateways.",
-          "Focused on creating a responsive design for optimal viewing on all devices.",
+          {
+            icon: <ShoppingCart className="w-4 h-4 text-blue-500" />,
+            text: "Developed a complete <em class='text-blue-400 font-medium'>e-commerce solution</em> using <em class='text-purple-400 font-medium'>WordPress</em>, <em class='text-green-400 font-medium'>Elementor</em>, and <em class='text-orange-400 font-medium'>WooCommerce</em>."
+          },
+          {
+            icon: <Sparkles className="w-4 h-4 text-yellow-500" />,
+            text: "Built an online store for selling <em class='text-yellow-400 font-medium'>high-quality pearls</em> to <em class='text-pink-400 font-medium'>jewelry businesses</em>."
+          },
+          {
+            icon: <Palette className="w-4 h-4 text-indigo-500" />,
+            text: "Customized the website <em class='text-indigo-400 font-medium'>design</em> and <em class='text-cyan-400 font-medium'>functionality</em> to create a unique <em class='text-rose-400 font-medium'>brand experience</em>."
+          },
+          {
+            icon: <Shield className="w-4 h-4 text-green-500" />,
+            text: "Ensured a <em class='text-green-400 font-medium'>seamless</em> and <em class='text-red-400 font-medium'>secure</em> checkout process by integrating <em class='text-violet-400 font-medium'>payment gateways</em>."
+          },
         ]}
       />
     ),
@@ -165,7 +222,11 @@ export function ExperienceSection() {
                     className="aspect-square rounded-full"
                     asChild
                   >
-                    <a href={entry.url} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={entry.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ArrowUpRight />
                     </a>
                   </Button>
@@ -185,6 +246,23 @@ export function ExperienceSection() {
           );
         })}
       </motion.div>
+      
+      {/* See All Projects Link */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true }}
+        className="mt-12 text-center"
+      >
+        <a
+          href="/projects"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 hover:scale-105 hover:shadow-lg group"
+        >
+          See All Projects
+          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </a>
+      </motion.div>
     </section>
   );
-} 
+}

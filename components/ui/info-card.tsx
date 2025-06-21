@@ -91,25 +91,27 @@ export const InfoCard: React.FC<InfoCardProps> = ({
         if (borderRef.current)
           borderRef.current.style.setProperty("--rotation", "0deg");
       }}
-      style={{
-        width,
-        height,
-        border: `${borderWidth}px solid transparent`,
-        borderRadius: "1em",
-        backgroundOrigin: "border-box",
-        backgroundClip: "padding-box, border-box",
-        backgroundImage: `linear-gradient(${cardBgColor}, ${cardBgColor}), ${borderGradient}`,
-        padding: borderPadding,
-        boxSizing: "border-box",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: "pointer",
-        userSelect: "none",
-        transition: "box-shadow 0.3s",
-        position: "relative",
-        fontFamily: effectiveFont,
-      } as React.CSSProperties}
+      style={
+        {
+          width,
+          height,
+          border: `${borderWidth}px solid transparent`,
+          borderRadius: "1em",
+          backgroundOrigin: "border-box",
+          backgroundClip: "padding-box, border-box",
+          backgroundImage: `linear-gradient(${cardBgColor}, ${cardBgColor}), ${borderGradient}`,
+          padding: borderPadding,
+          boxSizing: "border-box",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+          userSelect: "none",
+          transition: "box-shadow 0.3s",
+          position: "relative",
+          fontFamily: effectiveFont,
+        } as React.CSSProperties
+      }
     >
       <div
         style={{
@@ -126,7 +128,14 @@ export const InfoCard: React.FC<InfoCardProps> = ({
           padding: 0,
         }}
       >
-        <div style={{ width: "100%", height: 180, position: "relative", overflow: "hidden" }}>
+        <div
+          style={{
+            width: "100%",
+            height: "220px",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
           <Image
             src={image}
             alt={title}
@@ -159,6 +168,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
               transition: "color 0.3s ease",
               position: "relative",
               overflow: "hidden",
+              paddingTop: "2px",
               direction: titleDirection,
               width: "auto",
             }}
@@ -201,11 +211,13 @@ export const InfoCard: React.FC<InfoCardProps> = ({
               color: textColor,
               display: "-webkit-box",
               WebkitLineClamp: 3,
+              paddingTop: "10px",
+              paddingBottom: "4px",
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
+              textAlign: "center",
               direction: descDirection,
               marginBottom: 0,
-              paddingBottom: 0,
               minHeight: 0,
             }}
           >

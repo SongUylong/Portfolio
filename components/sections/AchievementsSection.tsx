@@ -1,14 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { InfoCard } from "@/components/ui/info-card";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const achievements = [
   {
-    title: "The Best Presentation Skill",
+    title: "Best Presentation Skill",
     date: "Aug 2024",
     description:
-      "Awarded Best Presentation Skills at the ACIYLS ASEAN-China-India Youth Leadership Summit 2024. Our team was honored to be in the Top 4 overall, presenting in front of international youth leaders and judges. A memorable experience that fostered teamwork, leadership, and growth.",
+      "Won Best Presentation at ACIYLS 2024 for an OpenCV-based occupancy tracking system integrated with IoT for smart electricity control. Ranked Top 4 overall.",
     image: "/award.jpg",
   },
   {
@@ -22,7 +23,7 @@ const achievements = [
     title: "Techno Innovation Challenge Finalist",
     date: "May 2024",
     description:
-      "Finalist in the Techno Innovation Challenge after two months of intensive training. Designed and pitched innovative tech solutions, gaining valuable experience in entrepreneurship, teamwork, and technical development.",
+      "Finalist in the Techno Innovation Challenge Hackathon. Built a web platform using Next.js and MongoDB to centralize youth opportunities. Gained hands-on experience in entrepreneurship, teamwork, and full-stack development.",
     image: "/techo.jpg",
   },
   {
@@ -30,11 +31,17 @@ const achievements = [
     date: "Jan 2023",
     description:
       "Received a full academic scholarship at Paragon International University, awarded for outstanding academic performance and leadership potential. This scholarship has enabled me to pursue higher education and further develop my skills and knowledge.",
-    image:"/scholar.jpg"
+    image: "/scholar.jpg",
   },
 ];
 
 export function AchievementsSection() {
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+
+  const toggleCard = (index: number) => {
+    setExpandedCard(prev => prev === index ? null : index);
+  };
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -65,29 +72,98 @@ export function AchievementsSection() {
           viewport={{ once: false, amount: 0.2 }}
           className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center"
         >
-          {achievements.map((achievement, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <InfoCard
-                image={achievement.image}
-                title={achievement.title}
-                description={`${achievement.description} (${achievement.date})`}
-                borderColor="var(--border-color-1)"
-                borderBgColor="var(--border-bg-color)"
-                cardBgColor="var(--card-bg-color)"
-                shadowColor="var(--shadow-color)"
-                textColor="var(--text-color)"
-                hoverTextColor="var(--hover-text-color-1)"
-                fontFamily="var(--font-family)"
-                rtlFontFamily="var(--rtl-font-family)"
-                effectBgColor="var(--border-color-1)"
-                patternColor1="var(--pattern-color1)"
-                patternColor2="var(--pattern-color2)"
-                contentPadding="5px 15px"
-              />
-            </motion.div>
-          ))}
+          {achievements.map((achievement, index) => {
+            const isExpanded = expandedCard === index;
+            return (
+              <motion.div 
+                key={index} 
+                variants={itemVariants}
+                layout
+                className="w-full max-w-[388px]"
+              >
+                <div className="relative">
+                  {/* Original InfoCard */}
+                  <div 
+                    onClick={() => toggleCard(index)}
+                    className="cursor-pointer transition-transform duration-200 hover:scale-[1.02] relative"
+                  >
+                    <InfoCard
+                      image={achievement.image}
+                      title={achievement.title}
+                      description={`${achievement.description.slice(0, 80)}...`}
+                      width={388}
+                      height={378}
+                      borderColor="var(--border-color-1)"
+                      borderBgColor="var(--border-bg-color)"
+                      cardBgColor="var(--card-bg-color)"
+                      shadowColor="var(--shadow-color)"
+                      textColor="var(--text-color)"
+                      hoverTextColor="var(--hover-text-color-1)"
+                      fontFamily="var(--font-family)"
+                      rtlFontFamily="var(--rtl-font-family)"
+                      effectBgColor="var(--border-color-1)"
+                      patternColor1="var(--pattern-color1)"
+                      patternColor2="var(--pattern-color2)"
+                      contentPadding="5px 15px"
+                    />
+                    
+                    {/* Expand/Collapse indicator */}
+                    <div className="absolute bottom-4 right-4 bg-primary/90 text-primary-foreground p-2 rounded-full backdrop-blur-sm">
+                      {isExpanded ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Expanded Description Section */}
+                  {isExpanded && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0, y: -20 }}
+                      animate={{ opacity: 1, height: "auto", y: 0 }}
+                      exit={{ opacity: 0, height: 0, y: -20 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="mt-4 overflow-hidden"
+                    >
+                      <div className="bg-card/95 backdrop-blur-md border border-border/50 rounded-xl p-6 shadow-lg">
+                        <div className="flex items-center justify-between mb-4">
+                          <h3 className="text-xl font-bold text-foreground">
+                            {achievement.title}
+                          </h3>
+                          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                            {achievement.date}
+                          </span>
+                        </div>
+                        
+                        <div className="prose prose-sm dark:prose-invert max-w-none">
+                          <p className="text-muted-foreground leading-relaxed text-sm">
+                            {achievement.description}
+                          </p>
+                        </div>
+                        
+                        <div className="mt-4 pt-4 border-t border-border/30">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleCard(index);
+                            }}
+                            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                          >
+                            <ChevronUp className="w-4 h-4" />
+                            Click to collapse
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
   );
-} 
+}
+
