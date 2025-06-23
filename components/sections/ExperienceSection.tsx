@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card-curtain-reveal";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles, Globe } from "lucide-react";
-import { TypewriterCycle } from "@/components/ui/typewriter-cycle";
+import Image from "next/image";
 // Technology Icons
 import { 
   SiNextdotjs, 
@@ -330,10 +330,12 @@ export function ExperienceSection() {
                 </CardCurtainRevealBody>
 
                 <CardCurtainRevealFooter className="mt-auto h-64 relative p-0 overflow-hidden">
-                  <img
+                  <Image
                     alt={entry.position}
                     className="absolute left-0 top-0 w-full h-full object-cover object-top rounded-b-xl"
                     src={getExperienceImage(entry.position, entry.image)}
+                    width={400}
+                    height={256}
                   />
                 </CardCurtainRevealFooter>
               </CardCurtainReveal>

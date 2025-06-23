@@ -37,7 +37,7 @@ export function TextParticle({
 }: TextParticleAnimationProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [particles, setParticles] = useState<Particle[]>([]);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [_dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [mouse, setMouse] = useState({
     x: null as number | null,
     y: null as number | null,
@@ -87,10 +87,6 @@ export function TextParticle({
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-
-      // Measure text width to center it properly
-      const textMetrics = ctx.measureText(text);
-      const textWidth = textMetrics.width;
 
       // Calculate position to center text
       const x = canvas.width / 2;

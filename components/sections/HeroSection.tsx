@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { TypewriterCycle } from "@/components/ui/typewriter-cycle";
 import { StarBorder } from "@/components/ui/star-border";
-import { GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { MdMail } from "react-icons/md";
 

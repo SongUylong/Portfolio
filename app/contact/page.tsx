@@ -5,22 +5,12 @@ import { motion } from "framer-motion";
 import { Mail, Linkedin, Github } from "lucide-react"; // Lucide React icons
 import AppLayout from "@/components/layout/AppLayout";
 import { SubmissionForm } from "@/components/SubmissionForm";
-import { TextMorph } from '@/components/ui/text-morph';
 import { GlowEffect } from '@/components/ui/glow-effect';
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const handleVisible = (data:boolean) => {
     setIsVisible(data);
   }
-  // Framer Motion variants for the contact card
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
 
   return (
     <AppLayout>

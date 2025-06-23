@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: [
     '192.168.0.115'
   ],
-  typescript: {
+  /*typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
     // your project has type errors.
@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     // Warning: Dangerously allow production builds to successfully complete even if
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
-  },
+  },*/
   images: {
     remotePatterns: [
       {

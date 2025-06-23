@@ -12,7 +12,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useRef, useState, useEffect } from "react"; // Added useEffect
-import { StarBorder } from "./star-border"; // Ensure correct path
 import { useTheme } from "next-themes";
 
 // --- Interfaces ---
@@ -51,7 +50,7 @@ interface MobileNavMenuProps {
   children: React.ReactNode;
   className?: string;
   isOpen: boolean;
-  onClose: () => void;
+  _onClose: () => void;
 }
 
 // --- Components ---
@@ -92,10 +91,9 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   const { theme, systemTheme } = useTheme(); // Get both theme and systemTheme
-  const [mounted, setMounted] = useState(false); // State to track client-side mount
 
   useEffect(() => {
-    setMounted(true);
+    // Component is mounted - no need to track mount state for this component
   }, []);
 
   return (
@@ -164,15 +162,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   const { theme, systemTheme } = useTheme(); // Get both theme and systemTheme
-  const [mounted, setMounted] = useState(false); // State to track client-side mount
 
   // Set mounted to true only after the component has mounted on the client
   useEffect(() => {
-    setMounted(true);
+    // Component is mounted - no need to track mount state for this component
   }, []);
 
   // Determine the effective theme for conditional rendering
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const _currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <motion.div
@@ -223,19 +220,16 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
+  _onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-card border border-primary/20 px-4 py-8 shadow-lg backdrop-blur-md",
-            className,
-          )}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className={cn("w-full overflow-hidden", className)}
         >
           {children}
         </motion.div>
@@ -260,7 +254,7 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const hoverTimeout = useRef<NodeJS.Timeout | null>(null); // Explicitly type as NodeJS.Timeout | null
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
   function handleMouseEnter() {
     if (hoverTimeout.current !== null) {
@@ -268,36 +262,40 @@ export const NavbarLogo = () => {
     }
     hoverTimeout.current = setTimeout(() => {
       setIsHovered(true);
-    }, 200); // Your comment says 300ms, code is 200ms
+    }, 200);
   }
 
   function handleMouseLeave() {
     if (hoverTimeout.current !== null) {
       clearTimeout(hoverTimeout.current);
-      hoverTimeout.current = null;
     }
-    setIsHovered(false);
+    hoverTimeout.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 200);
   }
 
   return (
     <Link
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-md font-normal text-foreground"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="transition-transform transform hover:scale-105"
     >
-      <Image
-        src="/logo.png"
-        alt="logo"
-        width={35}
-        height={35}
-        className={`${
-          isHovered ? "animate-flip-forward" : "animate-flip-back"
-        }`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      />
-      <span className="font-medium text-foreground font-serif">
-        Song Uylong
-      </span>
+      <div className="flex items-center space-x-2">
+        <motion.div
+          animate={{ rotate: isHovered ? 360 : 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+        </motion.div>
+        <span className="text-lg font-bold text-foreground">Portfolio</span>
+      </div>
     </Link>
   );
 };
@@ -315,28 +313,45 @@ export const NavbarButton = ({
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
-} & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
-  const baseStyles =
-    "px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
-
-  const variantStyles = {
-    primary:
-      "shadow-lg border border-primary/20 hover:bg-primary/90",
-    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
-    dark: "bg-secondary text-secondary-foreground shadow-lg border border-primary/20 hover:bg-secondary/90",
-    gradient:
-      "bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-lg",
+} & React.ComponentPropsWithoutRef<"a"> & React.ComponentPropsWithoutRef<"button">) => {
+  const baseClasses = "px-4 py-2 rounded-lg transition-colors font-medium";
+  
+  const variantClasses = {
+    primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+    dark: "bg-gray-900 text-white hover:bg-gray-800",
+    gradient: "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:from-primary/90 hover:to-primary/70",
   };
 
+  const combinedClassName = cn(baseClasses, variantClasses[variant], className);
+
+  if (href) {
+    // Extract only anchor-compatible props
+    const {
+      // Remove button-specific props that don't exist on anchor elements
+      autoFocus,
+      disabled,
+      form,
+      formAction,
+      formEncType,
+      formMethod,
+      formNoValidate,
+      formTarget,
+      name,
+      type,
+      value,
+      ...anchorProps
+    } = props as any;
+
+    return (
+      <Link href={href} className={combinedClassName} {...anchorProps}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <Tag
-      href={href || undefined}
-      className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}
-    >
+    <Tag className={combinedClassName} {...props}>
       {children}
     </Tag>
   );

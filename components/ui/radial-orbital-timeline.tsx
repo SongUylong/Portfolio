@@ -27,11 +27,11 @@ export default function RadialOrbitalTimeline({
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
     {}
   );
-  const [viewMode, setViewMode] = useState<"orbital">("orbital");
+  const [viewMode] = useState<"orbital">("orbital");
   const [rotationAngle, setRotationAngle] = useState<number>(0);
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
-  const [centerOffset, setCenterOffset] = useState<{ x: number; y: number }>({
+  const [centerOffset] = useState<{ x: number; y: number }>({
     x: 0,
     y: 0,
   });
@@ -173,7 +173,7 @@ export default function RadialOrbitalTimeline({
     return relatedItems.includes(itemId);
   };
 
-  const getStatusStyles = (status: string): string => {
+  const getStatusStyles = (): string => {
     return "text-white bg-black border-white";
   };
 
@@ -205,7 +205,7 @@ export default function RadialOrbitalTimeline({
             <div className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 rounded-full bg-background/80 backdrop-blur-md"></div>
           </div>
 
-          <div className="absolute w-60 h-60 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border border-primary/10"></div>
+          <div className="absolute w-60 h-60 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border border-primary/30"></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
@@ -301,7 +301,7 @@ export default function RadialOrbitalTimeline({
                     <CardHeader className="pb-2 px-3 sm:px-6">
                       <div className="flex justify-between items-center">
                         <Badge
-                          className={`px-2 text-xs ${getStatusStyles(item.status)}`}
+                          className={`px-2 text-xs ${getStatusStyles()}`}
                         >
                           {item.status.toUpperCase()}
                         </Badge>

@@ -2,7 +2,7 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap, Code, Database, Shield, TrendingUp, Globe, Award, Trophy, Languages } from "lucide-react";
+import { GraduationCap, Code, Database, TrendingUp, Globe, Award, Trophy, Languages } from "lucide-react";
 import Image from "next/image";
 
 export function EducationSection() {

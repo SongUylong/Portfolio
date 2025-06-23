@@ -96,7 +96,6 @@ export function AchievementsSection() {
                       borderColor="var(--border-color-1)"
                       borderBgColor="var(--border-bg-color)"
                       cardBgColor="var(--card-bg-color)"
-                      shadowColor="var(--shadow-color)"
                       textColor="var(--text-color)"
                       hoverTextColor="var(--hover-text-color-1)"
                       fontFamily="var(--font-family)"

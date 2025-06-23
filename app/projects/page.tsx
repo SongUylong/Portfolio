@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react"; // Lucide React icons
 import AppLayout from "@/components/layout/AppLayout";
+import Image from "next/image";
 // Technology Icons
 import { 
   SiNextdotjs, 
@@ -38,7 +39,6 @@ import {
   SiGreensock
 } from "react-icons/si";
 import { TbApi, TbCloudRain } from "react-icons/tb";
-import { RiNextjsLine } from "react-icons/ri";
 import { MdSecurity } from "react-icons/md";
 
 export default function ProjectsSection() {
@@ -217,14 +217,16 @@ export default function ProjectsSection() {
                     </div>
                   </div>
                 )}
-                <img
+                <Image
                   src={project.imageUrl}
                   alt={project.name}
+                  width={600}
+                  height={400}
                   className="w-full h-64 object-cover"
                   // Fallback for image loading errors
                   onError={(e) => {
                     e.currentTarget.src =
-                      "[https://placehold.co/600x400/E0E0E0/333333?text=Image+Error](https://placehold.co/600x400/E0E0E0/333333?text=Image+Error)";
+                      "https://placehold.co/600x400/E0E0E0/333333?text=Image+Error";
                   }}
                 />
                 <CardHeader>

@@ -3,34 +3,28 @@
 import React from "react";
 import {
   SiReact,
-  SiTailwindcss,
   SiNextdotjs,
   SiTypescript,
+  SiTailwindcss,
+  SiGithub,
+  SiGit,
+  SiPostgresql,
   SiExpress,
   SiPrisma,
-  SiPostgresql,
-  SiRedux,
-  SiFramer,
   SiFigma,
-  SiGit,
-  SiGithub,
-  SiDocker,
-  SiVercel,
-  SiNginx,
+  SiFramer,
+  SiRedux,
   SiAxios,
   SiReactrouter,
   SiReactquery,
+  SiDocker,
+  SiVercel,
+  SiNginx,
 } from "react-icons/si";
-import { 
-  Database,
-  Server,
-  Zap,
-  RefreshCw,
-} from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline"; // Make sure this path is correct
-import { Md7Mp, MdGroups,MdGroupWork, MdRouter } from "react-icons/md";
+import { MdGroups,MdGroupWork, MdRouter } from "react-icons/md";
 // Converted skills data for the timeline
-import { TbWorldWww, TbDeviceMobileCode, TbBrandNextjs } from "react-icons/tb";
+import { TbWorldWww, TbBrandNextjs } from "react-icons/tb";
 const timelineData = [
   {
     id: 1,

@@ -28,7 +28,7 @@ export function TypewriterCycle({
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
+  const [_isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
     const currentFullText = texts[currentTextIndex] || '';
