@@ -61,7 +61,7 @@ export function AchievementsSection() {
 
   return (
     <section id="achievements" className="py-12">
-      <h2 className="text-4xl font-bold mb-10 text-center text-foreground">
+      <h2 className="text-4xl font-bold mb-10 text-center text-neutral-800 dark:text-neutral-200">
         Achievements
       </h2>
       <div className="max-w-7xl mx-auto px-4">
@@ -70,7 +70,7 @@ export function AchievementsSection() {
           whileInView="visible"
           variants={containerVariants}
           viewport={{ once: false, amount: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center"
+          className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center"
         >
           {achievements.map((achievement, index) => {
             const isExpanded = expandedCard === index;
@@ -128,7 +128,7 @@ export function AchievementsSection() {
                     >
                       <div className="bg-card/95 backdrop-blur-md border border-border/50 rounded-xl p-6 shadow-lg">
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-xl font-bold text-foreground">
+                          <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
                             {achievement.title}
                           </h3>
                           <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
@@ -137,7 +137,7 @@ export function AchievementsSection() {
                         </div>
                         
                         <div className="prose prose-sm dark:prose-invert max-w-none">
-                          <p className="text-muted-foreground leading-relaxed text-sm">
+                          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
                             {achievement.description}
                           </p>
                         </div>
@@ -148,7 +148,7 @@ export function AchievementsSection() {
                               e.stopPropagation();
                               toggleCard(index);
                             }}
-                            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                            className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-primary transition-colors text-sm"
                           >
                             <ChevronUp className="w-4 h-4" />
                             Click to collapse

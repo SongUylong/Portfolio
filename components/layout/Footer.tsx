@@ -1,6 +1,6 @@
 const Footer = () => (
-  <footer className="py-7 text-center text-muted-foreground text-sm">
-    &copy; {new Date().getFullYear()} John Doe. All rights reserved.{" "}
+  <footer className="py-7 text-center text-neutral-600 dark:text-neutral-400 text-sm">
+    &copy; {new Date().getFullYear()} Uylong Song. All rights reserved.{" "}
   </footer>
 );
 

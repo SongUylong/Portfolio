@@ -10,8 +10,24 @@ import {
   CardCurtain,
 } from "@/components/ui/card-curtain-reveal";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles } from "lucide-react";
+import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles, Globe } from "lucide-react";
 import { TypewriterCycle } from "@/components/ui/typewriter-cycle";
+// Technology Icons
+import { 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiTailwindcss, 
+  SiReact, 
+  SiJavascript, 
+  SiGit, 
+  SiWordpress, 
+  SiPhp, 
+  SiMysql,
+  SiElementor,
+  SiExpress
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { SiWoo } from "react-icons/si";
 
 function BulletPointCycle({
   points,
@@ -61,32 +77,39 @@ const experienceEntries = [
     position: "Full-Stack Developer",
     company: "CamboConnect",
     dates: "Jan 2025 ~ Present",
+    technologies: [
+      { name: "Next.js", icon: <SiNextdotjs className="w-3 h-3" />, color: "bg-black text-white" },
+      { name: "TypeScript", icon: <SiTypescript className="w-3 h-3" />, color: "bg-blue-600 text-white" },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3 h-3" />, color: "bg-cyan-500 text-white" },
+      { name: "Zustand", icon: <Zap className="w-3 h-3" />, color: "bg-orange-500 text-white" },
+      { name: "React", icon: <SiReact className="w-3 h-3" />, color: "bg-blue-500 text-white" },
+    ],
     description: (
       <BulletPointCycle
         points={[
           {
             icon: <Code className="w-4 h-4 text-blue-500" />,
-            text: "Designed and developed the entire web application from <em class='text-blue-400 font-medium'>frontend to backend</em> using <em class='text-green-400 font-medium'>Next.js</em>, <em class='text-cyan-400 font-medium'>Tailwind CSS</em>."
+            text: "Designed and developed the entire web application from frontend to backend using Next.js, Tailwind CSS."
           },
           {
             icon: <Zap className="w-4 h-4 text-yellow-500" />,
-            text: "Created highly <em class='text-yellow-400 font-medium'>responsive</em>, <em class='text-green-400 font-medium'>SEO-friendly</em>, and <em class='text-purple-400 font-medium'>fast-loading</em> user interfaces, resulting in strong SEO rankings and excellent performance scores."
+            text: "Created highly responsive, SEO-friendly, and fast-loading user interfaces, resulting in strong SEO rankings and excellent performance scores."
           },
           {
             icon: <Server className="w-4 h-4 text-indigo-500" />,
-            text: "Built robust <em class='text-indigo-400 font-medium'>backend API integrations</em> and implemented <em class='text-orange-400 font-medium'>server-side rendering</em> and <em class='text-teal-400 font-medium'>static generation</em> for optimal performance."
+            text: "Built robust backend API integrations and implemented server-side rendering and static generation for optimal performance."
           },
           {
             icon: <Sparkles className="w-4 h-4 text-purple-500" />,
-            text: "Managed global and local application state efficiently using <em class='text-purple-400 font-medium'>Zustand</em>, ensuring smooth and <em class='text-pink-400 font-medium'>scalable state management</em>."
+            text: "Managed global and local application state efficiently using Zustand, ensuring smooth and scalable state management."
           },
           {
             icon: <Palette className="w-4 h-4 text-rose-500" />,
-            text: "Architected and implemented new features across the stack, delivering a <em class='text-rose-400 font-medium'>seamless</em> and <em class='text-amber-400 font-medium'>engaging user experience</em>."
+            text: "Architected and implemented new features across the stack, delivering a seamless and engaging user experience."
           },
           {
             icon: <Shield className="w-4 h-4 text-emerald-500" />,
-            text: "Utilized built-in methods for routing and data fetching with <em class='text-emerald-400 font-medium'>TypeScript</em> for <em class='text-blue-400 font-medium'>type safety</em> and <em class='text-violet-400 font-medium'>maintainability</em>."
+            text: "Utilized built-in methods for routing and data fetching with TypeScript for type safety and maintainability."
           },
         ]}
       />
@@ -95,35 +118,86 @@ const experienceEntries = [
     image: "/cambo.png",
   },
   {
+    position: "Full-Stack Developer",
+    company: "Ministry of Agriculture, Forestry and Fisheries",
+    dates: "Dec 2024 ~ Jan 2025",
+    technologies: [
+      { name: "React", icon: <SiReact className="w-3 h-3" />, color: "bg-blue-500 text-white" },
+      { name: "Express.js", icon: <SiExpress className="w-3 h-3" />, color: "bg-gray-600 text-white" },
+      { name: "React Router", icon: <GitBranch className="w-3 h-3" />, color: "bg-red-500 text-white" },
+      { name: "i18n", icon: <Globe className="w-3 h-3" />, color: "bg-purple-600 text-white" },
+      { name: "JavaScript", icon: <SiJavascript className="w-3 h-3" />, color: "bg-yellow-500 text-black" },
+    ],
+    description: (
+      <BulletPointCycle
+        points={[
+          {
+            icon: <Server className="w-4 h-4 text-green-500" />,
+            text: "Developed a comprehensive tree inventory system for Phnom Penh's urban forest documentation and conservation."
+          },
+          {
+            icon: <Code className="w-4 h-4 text-blue-500" />,
+            text: "Built interactive QR code system allowing users to scan and learn about each tree's unique story and characteristics."
+          },
+          {
+            icon: <Globe className="w-4 h-4 text-purple-500" />,
+            text: "Implemented multilingual support with i18n for Khmer and English languages to serve local and international users."
+          },
+          {
+            icon: <Palette className="w-4 h-4 text-teal-500" />,
+            text: "Created an interactive map and tree database for environmental education and urban biodiversity conservation."
+          },
+          {
+            icon: <Shield className="w-4 h-4 text-orange-500" />,
+            text: "Built scalable and secure admin dashboard for government officials to manage tree data and monitor system performance."
+          },
+          {
+            icon: <Users className="w-4 h-4 text-indigo-500" />,
+            text: "Delivered a platform promoting environmental awareness and community engagement with Cambodia's urban forest."
+          },
+        ]}
+      />
+    ),
+    url: "",
+    image: "/tree.png",
+  },
+  {
     position: "Frontend Developer Intern",
     company: "CodeForCambodia",
     dates: "Nov 2024 ~ May 2025",
+    technologies: [
+      { name: "React", icon: <SiReact className="w-3 h-3" />, color: "bg-blue-500 text-white" },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-3 h-3" />, color: "bg-cyan-500 text-white" },
+      { name: "JavaScript", icon: <SiJavascript className="w-3 h-3" />, color: "bg-yellow-500 text-black" },
+      { name: "Git", icon: <SiGit className="w-3 h-3" />, color: "bg-red-500 text-white" },
+      { name: "REST APIs", icon: <TbApi className="w-3 h-3" />, color: "bg-green-600 text-white" },
+    ],
     description: (
       <BulletPointCycle
         points={[
           {
             icon: <Palette className="w-4 h-4 text-blue-500" />,
-            text: "Built <em class='text-blue-400 font-medium'>responsive</em> and <em class='text-purple-400 font-medium'>animated</em> user interfaces using <em class='text-cyan-400 font-medium'>React.js</em> and <em class='text-teal-400 font-medium'>Tailwind CSS</em>, resulting in a <em class='text-green-400 font-bold'>30% improvement</em> in load times."
+            text: "Built responsive and animated user interfaces using React.js and Tailwind CSS, resulting in a 30% improvement in load times."
           },
           {
             icon: <Code className="w-4 h-4 text-green-500" />,
-            text: "Developed new features for web applications using <em class='text-green-400 font-medium'>React</em>, increasing application functionality by <em class='text-yellow-400 font-bold'>25%</em>."
+            text: "Developed new features for web applications using React, increasing application functionality by 25%."
           },
           {
             icon: <Server className="w-4 h-4 text-indigo-500" />,
-            text: "Worked with <em class='text-indigo-400 font-medium'>backend APIs</em> to fetch and display data <em class='text-orange-400 font-medium'>dynamically</em>, enriching the user experience."
+            text: "Worked with backend APIs to fetch and display data dynamically, enriching the user experience."
           },
           {
             icon: <Users className="w-4 h-4 text-pink-500" />,
-            text: "Collaborated effectively with a <em class='text-pink-400 font-medium'>team</em> and adapted to the <em class='text-violet-400 font-medium'>startup environment</em>."
+            text: "Collaborated effectively with a team and adapted to the startup environment."
           },
           {
             icon: <GitBranch className="w-4 h-4 text-orange-500" />,
-            text: "Utilized <em class='text-orange-400 font-medium'>Git</em> for version control, collaborating through <em class='text-yellow-400 font-medium'>feature branches</em>, team-based development workflow."
+            text: "Utilized Git for version control, collaborating through feature branches, team-based development workflow."
           },
           {
             icon: <Users className="w-4 h-4 text-emerald-500" />,
-            text: "Communicated with <em class='text-emerald-400 font-medium'>stakeholders</em> to gather requirements and deliver solutions."
+            text: "Communicated with stakeholders to gather requirements and deliver solutions."
           },
         ]}
       />
@@ -135,24 +209,31 @@ const experienceEntries = [
     position: "Ecommerce Website ",
     company: "Soriya Pearl",
     dates: "May 2024 ~ Present",
+    technologies: [
+      { name: "WordPress", icon: <SiWordpress className="w-3 h-3" />, color: "bg-blue-700 text-white" },
+      { name: "WooCommerce", icon: <SiWoo className="w-3 h-3" />, color: "bg-purple-600 text-white" },
+      { name: "Elementor", icon: <SiElementor className="w-3 h-3" />, color: "bg-pink-500 text-white" },
+      { name: "PHP", icon: <SiPhp className="w-3 h-3" />, color: "bg-indigo-600 text-white" },
+      { name: "MySQL", icon: <SiMysql className="w-3 h-3" />, color: "bg-orange-600 text-white" },
+    ],
     description: (
       <BulletPointCycle
         points={[
           {
             icon: <ShoppingCart className="w-4 h-4 text-blue-500" />,
-            text: "Developed a complete <em class='text-blue-400 font-medium'>e-commerce solution</em> using <em class='text-purple-400 font-medium'>WordPress</em>, <em class='text-green-400 font-medium'>Elementor</em>, and <em class='text-orange-400 font-medium'>WooCommerce</em>."
+            text: "Developed a complete e-commerce solution using WordPress, Elementor, and WooCommerce."
           },
           {
             icon: <Sparkles className="w-4 h-4 text-yellow-500" />,
-            text: "Built an online store for selling <em class='text-yellow-400 font-medium'>high-quality pearls</em> to <em class='text-pink-400 font-medium'>jewelry businesses</em>."
+            text: "Built an online store for selling high-quality pearls to jewelry businesses."
           },
           {
             icon: <Palette className="w-4 h-4 text-indigo-500" />,
-            text: "Customized the website <em class='text-indigo-400 font-medium'>design</em> and <em class='text-cyan-400 font-medium'>functionality</em> to create a unique <em class='text-rose-400 font-medium'>brand experience</em>."
+            text: "Customized the website design and functionality to create a unique brand experience."
           },
           {
             icon: <Shield className="w-4 h-4 text-green-500" />,
-            text: "Ensured a <em class='text-green-400 font-medium'>seamless</em> and <em class='text-red-400 font-medium'>secure</em> checkout process by integrating <em class='text-violet-400 font-medium'>payment gateways</em>."
+            text: "Ensured a seamless and secure checkout process by integrating payment gateways."
           },
         ]}
       />
@@ -205,7 +286,7 @@ export function ExperienceSection() {
 
           return (
             <motion.div key={index} variants={itemVariants}>
-              <CardCurtainReveal className="h-[480px] w-full border border-zinc-100 bg-zinc-950 text-zinc-50 shadow">
+              <CardCurtainReveal className="h-[520px] w-full border border-zinc-100 bg-zinc-950 text-zinc-50 shadow">
                 <CardCurtainRevealBody>
                   <CardCurtainRevealTitle className="text-2xl font-medium tracking-tight">
                     {entry.position}
@@ -214,6 +295,20 @@ export function ExperienceSection() {
                     <p className="text-sm text-muted-foreground mb-2">
                       {entry.company} • {entry.dates}
                     </p>
+                    
+                    {/* Technology Icons */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {entry.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className={`inline-flex items-center justify-center w-7 h-7 rounded-md ${tech.color}`}
+                          title={tech.name}
+                        >
+                          {tech.icon}
+                        </span>
+                      ))}
+                    </div>
+                    
                     {entry.description}
                   </CardCurtainRevealDescription>
                   <Button

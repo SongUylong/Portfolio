@@ -36,19 +36,19 @@ export function EducationSection() {
                   <div className="flex items-start gap-3">
                     <GraduationCap className="w-4 h-4 mt-0.5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
                     <p>
-                      Equipped with <em className="text-blue-600 dark:text-blue-400 font-medium">technical and business skills</em> to solve real-world problems with technology.
+                      Equipped with technical and business skills to solve real-world problems with technology.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <Database className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
                     <p>
-                      Learning about <em className="text-green-600 dark:text-green-400 font-medium">data management</em>, <em className="text-purple-600 dark:text-purple-400 font-medium">software development</em>, <em className="text-orange-600 dark:text-orange-400 font-medium">networks</em>, and <em className="text-red-600 dark:text-red-400 font-medium">cybersecurity</em>.
+                      Learning about data management, software development, networks, and cybersecurity.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <TrendingUp className="w-4 h-4 mt-0.5 text-indigo-600 dark:text-indigo-400 flex-shrink-0" />
                     <p>
-                      Gaining insight into <em className="text-indigo-600 dark:text-indigo-400 font-medium">business strategy</em> and <em className="text-teal-600 dark:text-teal-400 font-medium">decision-making</em>.
+                      Gaining insight into business strategy and decision-making.
                     </p>
                   </div>
                 </div>
@@ -97,13 +97,13 @@ export function EducationSection() {
                   <div className="flex items-start gap-3">
                     <Code className="w-4 h-4 mt-0.5 text-green-600 dark:text-green-400 flex-shrink-0" />
                     <p>
-                      Learned to develop <em className="text-green-600 dark:text-green-400 font-medium">responsive web apps</em> with <em className="text-blue-600 dark:text-blue-400 font-medium">front-end</em> and <em className="text-purple-600 dark:text-purple-400 font-medium">back-end integration</em>.
+                      Learned to develop responsive web apps with front-end and back-end integration.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <Globe className="w-4 h-4 mt-0.5 text-teal-600 dark:text-teal-400 flex-shrink-0" />
                     <p>
-                      Using modern technologies: <em className="text-orange-600 dark:text-orange-400 font-medium">Express.js</em> and <em className="text-cyan-600 dark:text-cyan-400 font-medium">React.js</em>.
+                      Using modern technologies: Express.js and React.js.
                     </p>
                   </div>
                 </div>
@@ -152,18 +152,18 @@ export function EducationSection() {
                   <div className="flex items-start gap-3">
                     <Trophy className="w-4 h-4 mt-0.5 text-yellow-600 dark:text-yellow-400 flex-shrink-0" />
                     <p>
-                      Achieved a score of <em className="text-yellow-600 dark:text-yellow-400 font-bold">99.5</em> and earned a <em className="text-green-600 dark:text-green-400 font-bold">Grade A</em>, ranking within the <em className="text-purple-600 dark:text-purple-400 font-bold">top 1%</em> on the <em className="text-blue-600 dark:text-blue-400 font-medium">national exam of Cambodia</em>.
+                      Achieved a score of <em className="text-yellow-600 dark:text-yellow-400 font-bold">99.5</em> and earned a <em className="text-green-600 dark:text-green-400 font-bold">Grade A</em>, ranking within the top 1% on the national exam of Cambodia.
                     </p>
                   </div>
                 </div>
                 <div className="mb-8 space-y-2">
                   <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
                     <Languages className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    <span><em className="text-blue-600 dark:text-blue-400 font-medium">TOEFL ITP Score:</em> <strong>532</strong></span>
+                    <span>TOEFL ITP Score: <strong>532</strong></span>
                   </div>
                   <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
                     <Award className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    <span><em className="text-green-600 dark:text-green-400 font-medium">IELTS Score:</em> <strong>6</strong></span>
+                    <span>IELTS Score: <strong>6</strong></span>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">

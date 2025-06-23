@@ -130,8 +130,9 @@ export function NameDemo() {
 
       <Description />
       <span className="text-center inline-block py-1.5 px-3 rounded-lg md:text-lg font-semibold text-foreground mb-5">
-        I love turning ideas into engaging digital experiences that make a difference. Whether collaborating with teams or solving tough problems, I'm driven by curiosity and a passion for creating products that truly help people. Let's build something impactful together!
-      </span>
+  Full-stack developer who loves turning ideas into real impact. Adaptable, open to new opportunities.
+</span>
+
       <div className="flex space-x-4 mb-5">
         <button
           onClick={handleContactMe}
