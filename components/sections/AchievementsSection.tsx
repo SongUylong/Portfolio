@@ -70,7 +70,7 @@ export function AchievementsSection() {
           whileInView="visible"
           variants={containerVariants}
           viewport={{ once: false, amount: 0.2 }}
-          className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center"
+          className="flex flex-col lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-8 items-center lg:justify-items-center"
         >
           {achievements.map((achievement, index) => {
             const isExpanded = expandedCard === index;
@@ -79,7 +79,7 @@ export function AchievementsSection() {
                 key={index} 
                 variants={itemVariants}
                 layout
-                className="w-full max-w-[388px]"
+                className="w-full max-w-[388px] flex justify-center"
               >
                 <div className="relative">
                   {/* Original InfoCard */}
