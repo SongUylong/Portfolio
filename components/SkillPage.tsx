@@ -20,6 +20,8 @@ import {
   SiDocker,
   SiVercel,
   SiNginx,
+  SiAdobephotoshop,
+  SiAdobeillustrator,
 } from "react-icons/si";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline"; // Make sure this path is correct
 import { MdGroups,MdGroupWork, MdRouter } from "react-icons/md";
@@ -63,6 +65,18 @@ const timelineData = [
             <SiFigma className="w-full h-full text-[#F24E1E]" />
           </div>
           <span className="flex-1">Transformed Figma prototypes into pixel-perfect, responsive UIs.</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0">
+            <SiAdobephotoshop className="w-full h-full text-[#31A8FF]" />
+          </div>
+          <span className="flex-1">Created and edited graphics, images, and visual assets using Adobe Photoshop.</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0">
+            <SiAdobeillustrator className="w-full h-full text-[#FF9A00]" />
+          </div>
+          <span className="flex-1">Designed vector graphics, logos, and illustrations using Adobe Illustrator.</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0">

@@ -6,6 +6,13 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const achievements = [
   {
+    title: "Top 3 Finalist, Unipreneur Program",
+    date: "Aug 2025",
+    description:
+      "Developed an AI solution to assist high school students with lesson comprehension using Khmer-language step-by-step guidance. Recognized by Khmer Enterprise for innovation in educational technology and impact on local education.",
+    image: "/top3.jpeg",
+  },
+  {
     title: "Best Presentation Skill",
     date: "Aug 2024",
     description:

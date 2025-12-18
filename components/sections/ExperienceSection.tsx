@@ -10,7 +10,7 @@ import {
   CardCurtain,
 } from "@/components/ui/card-curtain-reveal";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles, Globe } from "lucide-react";
+import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles, Globe, Database, Video, Share2 } from "lucide-react";
 import Image from "next/image";
 // Technology Icons
 import { 
@@ -24,7 +24,11 @@ import {
   SiPhp, 
   SiMysql,
   SiElementor,
-  SiExpress
+  SiExpress,
+  SiLaravel,
+  SiAdobephotoshop,
+  SiFacebook,
+  SiInstagram
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { SiWoo } from "react-icons/si";
@@ -73,6 +77,78 @@ function BulletPointCycle({
 }
 
 const experienceEntries = [
+  {
+    position: "Backend Intern",
+    company: "Paragon International University",
+    dates: "Nov 2025 ~ Present",
+    technologies: [
+      { name: "Laravel", icon: <SiLaravel className="w-3 h-3" />, color: "bg-red-600 text-white" },
+      { name: "PHP", icon: <SiPhp className="w-3 h-3" />, color: "bg-indigo-600 text-white" },
+      { name: "MySQL", icon: <SiMysql className="w-3 h-3" />, color: "bg-orange-600 text-white" },
+      { name: "REST APIs", icon: <TbApi className="w-3 h-3" />, color: "bg-green-600 text-white" },
+      { name: "Database", icon: <Database className="w-3 h-3" />, color: "bg-blue-600 text-white" },
+    ],
+    description: (
+      <BulletPointCycle
+        points={[
+          {
+            icon: <Server className="w-4 h-4 text-red-500" />,
+            text: "Specialized in Laravel backend development, building and maintaining APIs for the university's internal systems."
+          },
+          {
+            icon: <Database className="w-4 h-4 text-orange-500" />,
+            text: "Managed databases and implemented server-side logic to support university applications."
+          },
+          {
+            icon: <Code className="w-4 h-4 text-blue-500" />,
+            text: "Developed scalable backend solutions using Laravel framework and best practices."
+          },
+          {
+            icon: <Shield className="w-4 h-4 text-green-500" />,
+            text: "Ensured data integrity and security in all backend implementations."
+          },
+        ]}
+      />
+    ),
+    url: "https://paragoniu.edu.kh",
+    image: "/paragon.jpg",
+  },
+  {
+    position: "Full-Stack Developer",
+    company: "Origins Studios",
+    dates: "Aug 2024 ~ Nov 2024",
+    technologies: [
+      { name: "React", icon: <SiReact className="w-3 h-3" />, color: "bg-blue-500 text-white" },
+      { name: "Next.js", icon: <SiNextdotjs className="w-3 h-3" />, color: "bg-black text-white" },
+      { name: "TypeScript", icon: <SiTypescript className="w-3 h-3" />, color: "bg-blue-600 text-white" },
+      { name: "REST APIs", icon: <TbApi className="w-3 h-3" />, color: "bg-green-600 text-white" },
+      { name: "Database", icon: <Database className="w-3 h-3" />, color: "bg-blue-600 text-white" },
+    ],
+    description: (
+      <BulletPointCycle
+        points={[
+          {
+            icon: <Code className="w-4 h-4 text-blue-500" />,
+            text: "Contributed to 4 large-scale projects by developing full-stack features and integrating APIs."
+          },
+          {
+            icon: <Server className="w-4 h-4 text-indigo-500" />,
+            text: "Managed databases and backend systems to deliver scalable and reliable solutions."
+          },
+          {
+            icon: <Zap className="w-4 h-4 text-yellow-500" />,
+            text: "Worked on internal systems and client websites with focus on performance and reliability."
+          },
+          {
+            icon: <Users className="w-4 h-4 text-pink-500" />,
+            text: "Collaborated with cross-functional teams to deliver high-quality solutions."
+          },
+        ]}
+      />
+    ),
+    url: "",
+    image: "/origins.png",
+  },
   {
     position: "Full-Stack Developer",
     company: "CamboConnect",
@@ -204,6 +280,40 @@ const experienceEntries = [
     ),
     image: "/cfc.png",
     url: "https://codeforcambodia.com",
+  },
+  {
+    position: "Content & Social Media Manager",
+    company: "CodeForCambodia",
+    dates: "Nov 2024 ~ May 2025",
+    technologies: [
+      { name: "Photoshop", icon: <SiAdobephotoshop className="w-3 h-3" />, color: "bg-blue-600 text-white" },
+      { name: "Facebook", icon: <SiFacebook className="w-3 h-3" />, color: "bg-blue-700 text-white" },
+      { name: "Instagram", icon: <SiInstagram className="w-3 h-3" />, color: "bg-pink-600 text-white" },
+    ],
+    description: (
+      <BulletPointCycle
+        points={[
+          {
+            icon: <Video className="w-4 h-4 text-red-500" />,
+            text: "Created and managed video content including shooting, editing, and post-production for social media campaigns."
+          },
+          {
+            icon: <Share2 className="w-4 h-4 text-purple-500" />,
+            text: "Managed social media presence across platforms, creating engaging content to grow community engagement."
+          },
+          {
+            icon: <Palette className="w-4 h-4 text-blue-500" />,
+            text: "Designed graphics and visual content using Adobe Photoshop for marketing materials and social posts."
+          },
+          {
+            icon: <Sparkles className="w-4 h-4 text-yellow-500" />,
+            text: "Developed content strategy and maintained consistent brand voice across all social media channels."
+          },
+        ]}
+      />
+    ),
+    image: "/cfcfacebook.png",
+    url: "https://www.facebook.com/share/v/1Cq4dZ3XYb/",
   },
   {
     position: "Ecommerce Website ",
