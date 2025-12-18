@@ -205,6 +205,37 @@ export default function ProjectsSection() {
       liveUrl: "https://camboconnect.com",
     },
     {
+      name: "Cheang Bak Van Hong",
+      description:
+        "A luxury and modern semi-e-commerce website for a prestigious jewelry shop in Cambodia. Features elegant product showcase, admin management panel, modern responsive layout, easy customer checkout flow, and integrated Telegram checkout system that sends detailed product information directly to the shop for seamless order processing.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      imageUrl: "/cbvh.png",
+      images: [
+        "/cbvh.png",
+        "/cbvh2.png",
+        "/cbvh3.png",
+      ],
+      liveUrl: "https://cbvh.vercel.app",
+    },
+    {
+      name: "BNI E-Card",
+      description:
+        "An electronic card platform for BNI (Business Network International) that allows members to view and manage digital business cards. Features member directory, electronic card display, easy contact sharing, and professional networking tools. Streamlines member connections and enhances business relationship management within the BNI community.",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      imageUrl: "/ecard-bni.png",
+      liveUrl: "https://e-card-sigma.vercel.app/groups/blue",
+    },
+    {
       name: "Echtventure",
       description:
         "A professional coaching website for Keith Tay, an ICF Certified Professional Coach & HRD Corp Accredited Trainer based in Malaysia. Over 2,500 individuals impacted through coaching, workshops, and leadership programs. Features people-centered programs and transformative coaching services.",
