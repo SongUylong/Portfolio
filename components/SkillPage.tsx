@@ -22,6 +22,7 @@ import {
   SiNginx,
   SiAdobephotoshop,
   SiAdobeillustrator,
+  SiNuxtdotjs,
 } from "react-icons/si";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline"; // Make sure this path is correct
 import { MdGroups,MdGroupWork, MdRouter } from "react-icons/md";
@@ -310,6 +311,32 @@ const timelineData = [
   },
   {
     id: 11,
+    title: "Nuxt.js",
+    date: "Full-Stack",
+    content: (
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0">
+            <SiNuxtdotjs className="w-full h-full text-[#00DC82]" />
+          </div>
+          <span className="flex-1">Built server-side rendered Vue.js applications with Nuxt.js framework.</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0">
+            <SiNuxtdotjs className="w-full h-full text-[#00DC82]" />
+          </div>
+          <span className="flex-1">Implemented SSR, static site generation, and modular architecture with Nuxt.js.</span>
+        </div>
+      </div>
+    ),
+    category: "Full-Stack",
+    icon: SiNuxtdotjs,
+    status: "Advanced" as const,
+    skillLevel: 85,
+    relatedIds: [],
+  },
+  {
+    id: 12,
     title: "Collaboration",
     date: "Soft Skills",
     content: (
