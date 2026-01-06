@@ -370,22 +370,40 @@ export default function ProjectsSection() {
     },
   };
 
+  // Check if device is mobile
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <AppLayout>
-      <section id="projects" className="py-12">
-        <h2 className="text-4xl font-bold mb-10 text-center text-neutral-800 dark:text-neutral-200">
+      <section id="projects" className="py-6 sm:py-12 w-full overflow-x-hidden">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-10 text-center text-neutral-800 dark:text-neutral-200">
           Projects
         </h2>
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }} // Animate when 20% of the container is in view
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto px-4 sm:px-0"
+          variants={isMobile ? undefined : containerVariants}
+          initial={isMobile ? undefined : "hidden"}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={{ once: true, amount: isMobile ? 0 : 0.2 }} // Animate when 20% of the container is in view
         >
           {projects.map((project, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Card className={`overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] h-[600px] flex flex-col relative ${
+            <motion.div 
+              key={index} 
+              variants={isMobile ? undefined : itemVariants}
+              className="w-full"
+            >
+              <Card className={`overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] h-auto sm:h-[600px] min-h-[500px] flex flex-col relative bg-white dark:bg-[#1E3E62] ${
                 project.name === "CamboConnect" 
                   ? "border-2 border-yellow-400 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20" 
                   : ""
@@ -428,10 +446,10 @@ export default function ProjectsSection() {
                   </div>
                 )}
                 <CardHeader>
-                  <CardTitle className={`text-lg font-semibold ${
+                  <CardTitle className={`text-lg font-semibold text-neutral-800 dark:text-neutral-200 ${
                     project.name === "CamboConnect" 
-                      ? "text-amber-800 dark:text-amber-200" 
-                      : "text-neutral-800 dark:text-neutral-200"
+                      ? "!text-amber-800 dark:!text-amber-200" 
+                      : ""
                   }`}>
                     {project.name}
                   </CardTitle>

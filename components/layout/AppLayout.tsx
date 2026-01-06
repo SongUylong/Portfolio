@@ -8,7 +8,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow p-12">{children}</main>
+      <main className="flex-grow p-4 sm:p-8 lg:p-12">{children}</main>
       <Footer />
     </div>
   );
