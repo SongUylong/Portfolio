@@ -157,7 +157,7 @@ export default function ProjectsSection() {
 
     return (
       <div 
-        className="relative w-full h-64 overflow-hidden cursor-pointer group"
+        className="relative w-full h-64 overflow-hidden cursor-pointer group rounded-t-xl"
         onClick={() => openFullscreen(images, currentIndex)}
       >
         {images.map((img, idx) => (
@@ -393,17 +393,20 @@ export default function ProjectsSection() {
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto px-4 sm:px-0"
           variants={isMobile ? undefined : containerVariants}
-          initial={isMobile ? undefined : "hidden"}
+          initial={isMobile ? { opacity: 1 } : "hidden"}
           whileInView={isMobile ? undefined : "visible"}
+          animate={isMobile ? { opacity: 1 } : undefined}
           viewport={{ once: true, amount: isMobile ? 0 : 0.2 }} // Animate when 20% of the container is in view
         >
           {projects.map((project, index) => (
             <motion.div 
               key={index} 
               variants={isMobile ? undefined : itemVariants}
+              initial={isMobile ? { opacity: 1, y: 0 } : undefined}
+              animate={isMobile ? { opacity: 1, y: 0 } : undefined}
               className="w-full"
             >
-              <Card className={`overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] h-auto sm:h-[600px] min-h-[500px] flex flex-col relative bg-white dark:bg-[#1E3E62] ${
+              <Card className={`shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] h-auto sm:h-[600px] sm:min-h-[500px] flex flex-col relative bg-white dark:bg-[#1E3E62] ${
                 project.name === "CamboConnect" 
                   ? "border-2 border-yellow-400 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20" 
                   : ""
@@ -423,7 +426,7 @@ export default function ProjectsSection() {
                   <ImageCarousel images={project.images} />
                 ) : (
                   <div 
-                    className="relative w-full h-64 overflow-hidden cursor-pointer group"
+                    className="relative w-full h-64 overflow-hidden cursor-pointer group rounded-t-xl"
                     onClick={() => openFullscreen([project.imageUrl], 0)}
                   >
                     <Image
