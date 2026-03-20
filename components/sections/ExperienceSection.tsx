@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion, Variants } from "framer-motion";
 import {
   CardCurtainReveal,
   CardCurtainRevealBody,
@@ -353,34 +352,13 @@ const experienceEntries = [
 ];
 
 export function ExperienceSection() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" as const },
-    },
-  };
-
   return (
     <section id="experience" className="py-12">
       <h2 className="text-4xl font-bold mb-10 text-center text-foreground">
         Experience
       </h2>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={containerVariants}
-        viewport={{ once: false, amount: 0.2 }}
+      <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4"
       >
         {experienceEntries.map((entry, index) => {
@@ -394,7 +372,7 @@ export function ExperienceSection() {
           };
 
           return (
-            <motion.div key={index} variants={itemVariants}>
+            <div key={index}>
               <CardCurtainReveal className="h-[520px] w-full border border-zinc-100 bg-zinc-950 text-zinc-50 shadow">
                 <CardCurtainRevealBody>
                   <CardCurtainRevealTitle className="text-2xl font-medium tracking-tight">
@@ -448,19 +426,13 @@ export function ExperienceSection() {
                   />
                 </CardCurtainRevealFooter>
               </CardCurtainReveal>
-            </motion.div>
+            </div>
           );
         })}
-      </motion.div>
+      </div>
       
       {/* See All Projects Link */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        viewport={{ once: true }}
-        className="mt-12 text-center"
-      >
+      <div className="mt-12 text-center">
         <a
           href="/projects"
           className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-all duration-200 hover:scale-105 hover:shadow-lg group"
@@ -468,7 +440,7 @@ export function ExperienceSection() {
           See All Projects
           <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </a>
-      </motion.div>
+      </div>
     </section>
   );
 }
