@@ -26,11 +26,10 @@ import {
   SiElementor,
   SiExpress,
   SiLaravel,
-  SiAdobephotoshop,
   SiFacebook,
   SiInstagram
 } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
+import { TbApi, TbPaint } from "react-icons/tb";
 import { SiWoo } from "react-icons/si";
 
 function BulletPointCycle({
@@ -286,7 +285,7 @@ const experienceEntries = [
     company: "CodeForCambodia",
     dates: "Nov 2024 ~ May 2025",
     technologies: [
-      { name: "Photoshop", icon: <SiAdobephotoshop className="w-3 h-3" />, color: "bg-blue-600 text-white" },
+      { name: "Photoshop", icon: <TbPaint className="w-3 h-3" />, color: "bg-blue-600 text-white" },
       { name: "Facebook", icon: <SiFacebook className="w-3 h-3" />, color: "bg-blue-700 text-white" },
       { name: "Instagram", icon: <SiInstagram className="w-3 h-3" />, color: "bg-pink-600 text-white" },
     ],

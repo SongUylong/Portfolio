@@ -24,7 +24,7 @@ import {
   SiReact, 
   SiJavascript, 
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiPostgresql,
   SiMongodb,
   SiExpress,
@@ -39,10 +39,8 @@ import {
   SiPrisma,
   SiGreensock,
   SiCloudflare,
-  SiAdobephotoshop,
-  SiAdobeillustrator
 } from "react-icons/si";
-import { TbApi, TbCloudRain } from "react-icons/tb";
+import { TbApi, TbCloudRain, TbBrush, TbPaint } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 
 export default function ProjectsSection() {
@@ -116,7 +114,7 @@ export default function ProjectsSection() {
       "Tailwind CSS": <SiTailwindcss className="w-3 h-3 text-cyan-500" />,
       "JavaScript": <SiJavascript className="w-3 h-3 text-yellow-500" />,
       "HTML": <SiHtml5 className="w-3 h-3 text-orange-600" />,
-      "CSS": <SiCss3 className="w-3 h-3 text-blue-600" />,
+      "CSS": <SiCss className="w-3 h-3 text-blue-600" />,
       "Prisma ORM": <SiPrisma className="w-3 h-3 text-indigo-600" />,
       "PostgreSQL": <SiPostgresql className="w-3 h-3 text-blue-700" />,
       "NextAuth.js": <MdSecurity className="w-3 h-3 text-green-600" />,
@@ -136,8 +134,8 @@ export default function ProjectsSection() {
       "ESLint": <SiEslint className="w-3 h-3 text-indigo-600" />,
       "Cloudflare R2": <SiCloudflare className="w-3 h-3 text-orange-500" />,
       "Prisma": <SiPrisma className="w-3 h-3 text-indigo-600" />,
-      "Adobe Photoshop": <SiAdobephotoshop className="w-3 h-3 text-[#31A8FF]" />,
-      "Adobe Illustrator": <SiAdobeillustrator className="w-3 h-3 text-[#FF9A00]" />,
+      "Adobe Photoshop": <TbPaint className="w-3 h-3 text-[#31A8FF]" />,
+      "Adobe Illustrator": <TbBrush className="w-3 h-3 text-[#FF9A00]" />,
     };
     
     return iconMap[tech] || <TbApi className="w-3 h-3 text-gray-500" />;
