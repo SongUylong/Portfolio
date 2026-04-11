@@ -51,7 +51,7 @@ export default function ContactSection() {
           <SubmissionForm handleVisible={handleVisible} />
           <div className="flex justify-center gap-6 mt-8">
             <a
-              href="https://www.linkedin.com/in/yourprofile"
+              href="https://kh.linkedin.com/in/uylong-song-9683aa2aa"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -60,7 +60,7 @@ export default function ContactSection() {
               <Linkedin className="h-8 w-8" />
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/SongUylong"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -69,7 +69,7 @@ export default function ContactSection() {
               <Github className="h-8 w-8" />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:uylongsong@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Send Email"
             >

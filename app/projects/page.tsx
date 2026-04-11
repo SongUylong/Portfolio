@@ -200,7 +200,7 @@ export default function ProjectsSection() {
         "Recharts"
       ],
       imageUrl: "/cambo2.png",
-      liveUrl: "https://camboconnect.com",
+      liveUrl: "https://camboconnect.vercel.app",
     },
     {
       name: "Cheang Bak Van Hong",

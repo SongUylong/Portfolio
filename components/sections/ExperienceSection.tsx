@@ -9,7 +9,7 @@ import {
   CardCurtain,
 } from "@/components/ui/card-curtain-reveal";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles, Globe, Database, Video, Share2 } from "lucide-react";
+import { ArrowUpRight, Code, Palette, Server, Zap, Users, GitBranch, ShoppingCart, Shield, Sparkles, Globe, Database, Video, Share2, Megaphone, LineChart, Calendar } from "lucide-react";
 import Image from "next/image";
 // Technology Icons
 import { 
@@ -76,9 +76,53 @@ function BulletPointCycle({
 
 const experienceEntries = [
   {
+    position: "Marketing Executive",
+    company: "OSG Youth Alliance",
+    dates: "Jan 2026 ~ Present",
+    technologies: [
+      { name: "Social & Meta", icon: <SiFacebook className="w-3 h-3" />, color: "bg-blue-700 text-white" },
+      { name: "Instagram", icon: <SiInstagram className="w-3 h-3" />, color: "bg-pink-600 text-white" },
+      { name: "Photoshop", icon: <TbPaint className="w-3 h-3" />, color: "bg-blue-600 text-white" },
+      { name: "WordPress", icon: <SiWordpress className="w-3 h-3" />, color: "bg-blue-700 text-white" },
+      { name: "Canva & design", icon: <Palette className="w-3 h-3" />, color: "bg-sky-500 text-white" },
+    ],
+    description: (
+      <BulletPointCycle
+        points={[
+          {
+            icon: <Megaphone className="w-4 h-4 text-red-500" />,
+            text: "Designed and executed marketing strategies for OSG programs—Startathon, leadership development, and sustainability initiatives—plus integrated plans with partner organizations.",
+          },
+          {
+            icon: <Calendar className="w-4 h-4 text-orange-500" />,
+            text: "Built and managed a marketing calendar for campaigns, events, and collaborations while enforcing branding guidelines across channels and materials.",
+          },
+          {
+            icon: <Share2 className="w-4 h-4 text-purple-500" />,
+            text: "Ran social media, produced collateral (newsletters, brochures, posters, videos, digital assets), and kept website content accurate and engaging.",
+          },
+          {
+            icon: <LineChart className="w-4 h-4 text-emerald-500" />,
+            text: "Tracked digital performance with analytics, monitored conversations, and engaged communities with timely, professional responses.",
+          },
+          {
+            icon: <Users className="w-4 h-4 text-indigo-500" />,
+            text: "Partnered with program teams on campaigns for youth leadership, sustainability challenges, and innovation competitions; coordinated promotion for events, webinars, and workshops.",
+          },
+          {
+            icon: <Sparkles className="w-4 h-4 text-amber-500" />,
+            text: "Supported partner organizations’ program marketing in line with OSG’s goals; recruited, briefed, and oversaw volunteers delivering communications work.",
+          },
+        ]}
+      />
+    ),
+    url: "https://www.osgyouthalliance.org/",
+    image: "/osg-youth-alliance.png",
+  },
+  {
     position: "Backend Intern",
     company: "Paragon International University",
-    dates: "Nov 2025 ~ Present",
+    dates: "Nov 2025 ~ Jan 1, 2026",
     technologies: [
       { name: "Laravel", icon: <SiLaravel className="w-3 h-3" />, color: "bg-red-600 text-white" },
       { name: "PHP", icon: <SiPhp className="w-3 h-3" />, color: "bg-indigo-600 text-white" },
@@ -188,7 +232,7 @@ const experienceEntries = [
         ]}
       />
     ),
-    url: "https://camboconnect.com",
+    url: "https://camboconnect.vercel.app",
     image: "/cambo.png",
   },
   {
@@ -371,6 +415,8 @@ export function ExperienceSection() {
             return "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1920&auto=format&fit=crop";
           };
 
+          const showFullLogo = entry.company === "OSG Youth Alliance";
+
           return (
             <div key={index}>
               <CardCurtainReveal className="h-[520px] w-full border border-zinc-100 bg-zinc-950 text-zinc-50 shadow">
@@ -416,10 +462,16 @@ export function ExperienceSection() {
                   <CardCurtain className="bg-zinc-50" />
                 </CardCurtainRevealBody>
 
-                <CardCurtainRevealFooter className="mt-auto h-64 relative p-0 overflow-hidden">
+                <CardCurtainRevealFooter
+                  className={`mt-auto h-64 relative p-0 overflow-hidden rounded-b-xl ${showFullLogo ? "bg-white" : ""}`}
+                >
                   <Image
                     alt={entry.position}
-                    className="absolute left-0 top-0 w-full h-full object-cover object-top rounded-b-xl"
+                    className={
+                      showFullLogo
+                        ? "absolute inset-0 h-full w-full object-contain object-center p-5 rounded-b-xl"
+                        : "absolute left-0 top-0 w-full h-full object-cover object-top rounded-b-xl"
+                    }
                     src={getExperienceImage(entry.position, entry.image)}
                     width={400}
                     height={256}
