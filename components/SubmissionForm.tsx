@@ -18,6 +18,8 @@ import { Textarea } from "./ui/textarea";
 import { TextMorph } from "./ui/text-morph";
 
 const formSchema = z.object({
+  name: z.string().min(2, { message: "Please enter your name." }).max(100),
+  email: z.string().email({ message: "Please enter a valid email address." }),
   subject: z.string().min(2, { message: "Add a short subject." }).max(200),
   message: z.string().min(5, { message: "Message is too short." }).max(2000),
 });
@@ -26,70 +28,127 @@ export type FormDataType = z.infer<typeof formSchema>;
 
 const CONTACT_EMAIL = "uylongsong@gmail.com";
 
-/** Opens Gmail compose: https://mail.google.com/mail/?view=cm — uses `su` for subject. */
-function buildGmailComposeUrl(values: FormDataType): string {
-  const params = new URLSearchParams({
-    view: "cm",
-    fs: "1",
-    to: CONTACT_EMAIL,
-    su: values.subject,
-    body: values.message,
-  });
-  return `https://mail.google.com/mail/?${params.toString()}`;
-}
 interface SubmissionFormProps {
   handleVisible: (visible: boolean) => void;
 }
+
 export function SubmissionForm({ handleVisible }: SubmissionFormProps) {
   const { toast } = useToast();
   const form = useForm<FormDataType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      name: "",
+      email: "",
       subject: "",
       message: "",
     },
   });
-  function onSubmit(values: FormDataType) {
+
+  async function onSubmit(values: FormDataType) {
     handleVisible(true);
     try {
-      const url = buildGmailComposeUrl(values);
-      const win = window.open(url, "_blank", "noopener,noreferrer");
-      if (!win) {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${CONTACT_EMAIL}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: values.name,
+            email: values.email,
+            _subject: `[Portfolio Contact] ${values.subject}`,
+            message: values.message,
+            _template: "table",
+            _captcha: "false",
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (response.ok && data.success !== "false") {
+        form.reset();
         toast({
-          title: "Pop-up blocked",
-          description: "Allow pop-ups for this site to open Gmail, or email manually.",
-          variant: "destructive",
+          title: "Message sent successfully!",
+          description:
+            "Thank you for reaching out. I will get back to you shortly.",
         });
-        return;
+      } else {
+        throw new Error(data.message || "Failed to send message");
       }
-      form.reset();
-      toast({
-        title: "Opening Gmail",
-        description: "Compose is prefilled—sign in to Gmail if needed, then send.",
-      });
     } catch (error) {
       console.error(error);
       toast({
-        title: "Could not open Gmail",
-        description: "Try again or open Gmail and email manually.",
+        title: "Could not send message",
+        description: `Something went wrong. Please email directly to ${CONTACT_EMAIL}.`,
         variant: "destructive",
       });
     } finally {
       window.setTimeout(() => handleVisible(false), 400);
     }
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <FormField
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm sm:text-base font-medium">
+                  Your Name
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="John Doe"
+                    className="h-10 text-base"
+                  />
+                </FormControl>
+                <FormMessage className="text-xs" />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm sm:text-base font-medium">
+                  Your Email
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="email"
+                    placeholder="john@example.com"
+                    className="h-10 text-base"
+                  />
+                </FormControl>
+                <FormMessage className="text-xs" />
+              </FormItem>
+            )}
+          />
+        </div>
+
         <FormField
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-lg font-medium">Subject</FormLabel>
+              <FormLabel className="text-sm sm:text-base font-medium">
+                Subject
+              </FormLabel>
               <FormControl>
-                <Input {...field} className="h-10 text-base" />
+                <Input
+                  {...field}
+                  placeholder="Project Inquiry / Job Opportunity"
+                  className="h-10 text-base"
+                />
               </FormControl>
-              <FormMessage className="text-sm" />
+              <FormMessage className="text-xs" />
             </FormItem>
           )}
         />
@@ -98,21 +157,29 @@ export function SubmissionForm({ handleVisible }: SubmissionFormProps) {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-lg font-medium">Message</FormLabel>
+              <FormLabel className="text-sm sm:text-base font-medium">
+                Message
+              </FormLabel>
               <FormControl>
-                <Textarea {...field} className="min-h-[120px] text-base" />
+                <Textarea
+                  {...field}
+                  placeholder="Hello Uylong, I would like to discuss..."
+                  className="min-h-[120px] text-base"
+                />
               </FormControl>
-              <FormMessage className="text-sm" />
+              <FormMessage className="text-xs" />
             </FormItem>
           )}
         />
         <Button
           type="submit"
           disabled={form.formState.isSubmitting}
-          aria-label='Load'
-          className='relative ml-1 flex h-10 scale-100 select-none appearance-none items-center justify-center overflow-hidden rounded-lg border border-zinc-950/10 bg-white px-4 text-base font-medium text-zinc-950 focus-visible:ring-2 active:scale-[0.96] dark:border-zinc-50/10'
+          aria-label="Send Message"
+          className="relative ml-1 flex h-10 w-full sm:w-auto scale-100 select-none appearance-none items-center justify-center overflow-hidden rounded-lg border border-zinc-950/10 bg-primary text-primary-foreground hover:bg-primary/90 px-6 text-base font-medium focus-visible:ring-2 active:scale-[0.96] shadow-md transition-all"
         >
-          <TextMorph>{form.formState.isSubmitting ? "Opening…" : "Send Message"}</TextMorph>
+          <TextMorph>
+            {form.formState.isSubmitting ? "Sending…" : "Send Message"}
+          </TextMorph>
         </Button>
       </form>
     </Form>

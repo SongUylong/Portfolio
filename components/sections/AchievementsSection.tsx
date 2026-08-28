@@ -6,38 +6,45 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const achievements = [
   {
-    title: "Top 3 Finalist, Unipreneur Program",
+    title: "Bac.ai — Top 3 Winner, UniPreneur Season 3",
     date: "Aug 2025",
     description:
-      "Developed an AI solution to assist high school students with lesson comprehension using Khmer-language step-by-step guidance. Recognized by Khmer Enterprise for innovation in educational technology and impact on local education.",
-    image: "/top3.jpeg",
+      "Co-founded and engineered Bac.ai, Cambodia's first Khmer-language AI math assistant for Grade 10–12 students aligned with the MOEYS curriculum. Selected as Top 3 Winner out of 60 teams across Phnom Penh universities organized by Khmer Enterprise and Thurawadh.",
+    image: "/unipreneur_award.jpg",
   },
   {
-    title: "Best Presentation Skill",
+    title: "Best Presentation & Top 4, ACIYLS 2024",
     date: "Aug 2024",
     description:
-      "Won Best Presentation at ACIYLS 2024 for an OpenCV-based occupancy tracking system integrated with IoT for smart electricity control. Ranked Top 4 overall.",
+      "Won Best Presentation Award and ranked Top 4 overall with team Jubbly at the ASEAN-China-India Youth Leadership Summit (ACIYLS 2024) for pitching an OpenCV-based smart occupancy and IoT energy management system.",
     image: "/award.jpg",
+  },
+  {
+    title: "Project Mgmt & Tech Lead — AIGC Future Global Challenge",
+    date: "2026",
+    description:
+      "Led tech operations and global challenge submissions for the AIGC for Future Global Challenge co-hosted by GSLDC (UNITAR Singapore), ITU, and DEC40 with opportunities in Beijing and Geneva.",
+    image: "/aigc_challenge.jpg",
   },
   {
     title: "ASEAN Data Science Explorers (DSE) Finalist",
     date: "Jul 2024",
     description:
-      "Selected as a finalist in the ASEAN Data Science Explorers competition, recognized for excellence in problem solving and sustainability. Developed data-driven solutions to address regional challenges and collaborated with talented peers from across Southeast Asia.",
+      "Selected as a national finalist in the ASEAN Data Science Explorers competition organized by the ASEAN Foundation and SAP. Built data-driven solutions to address regional economic and environmental sustainability challenges.",
     image: "/asean.png",
   },
   {
     title: "Techno Innovation Challenge Finalist",
     date: "May 2024",
     description:
-      "Finalist in the Techno Innovation Challenge Hackathon. Built a web platform using Next.js and MongoDB to centralize youth opportunities. Gained hands-on experience in entrepreneurship, teamwork, and full-stack development.",
+      "Finalist in the Techno Innovation Challenge Hackathon. Built an interactive platform to centralize youth opportunities across Cambodia using Next.js and MongoDB.",
     image: "/techo.jpg",
   },
   {
-    title: "Full Academic Scholarship",
+    title: "Full Academic Scholarship (Paragon IU)",
     date: "Jan 2023",
     description:
-      "Received a full academic scholarship at Paragon International University, awarded for outstanding academic performance and leadership potential. This scholarship has enabled me to pursue higher education and further develop my skills and knowledge.",
+      "Awarded a 100% full academic tuition scholarship at Paragon International University in the Department of Management Information Systems (MIS) for outstanding high school graduation achievements (Grade A, 99.5 score, Top 1% nationally).",
     image: "/scholar.jpg",
   },
 ];
@@ -46,7 +53,7 @@ export function AchievementsSection() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const toggleCard = (index: number) => {
-    setExpandedCard(prev => prev === index ? null : index);
+    setExpandedCard((prev) => (prev === index ? null : index));
   };
 
   const containerVariants: Variants = {
@@ -82,15 +89,15 @@ export function AchievementsSection() {
           {achievements.map((achievement, index) => {
             const isExpanded = expandedCard === index;
             return (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 variants={itemVariants}
                 layout
                 className="w-full max-w-[388px] flex justify-center"
               >
                 <div className="relative">
                   {/* Original InfoCard */}
-                  <div 
+                  <div
                     onClick={() => toggleCard(index)}
                     className="cursor-pointer transition-transform duration-200 hover:scale-[1.02] relative"
                   >
@@ -112,7 +119,7 @@ export function AchievementsSection() {
                       patternColor2="var(--pattern-color2)"
                       contentPadding="5px 15px"
                     />
-                    
+
                     {/* Expand/Collapse indicator */}
                     <div className="absolute bottom-4 right-4 bg-primary/90 text-primary-foreground p-2 rounded-full backdrop-blur-sm">
                       {isExpanded ? (
@@ -125,7 +132,7 @@ export function AchievementsSection() {
 
                   {/* Expanded Description Section */}
                   {isExpanded && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, height: 0, y: -20 }}
                       animate={{ opacity: 1, height: "auto", y: 0 }}
                       exit={{ opacity: 0, height: 0, y: -20 }}
@@ -141,13 +148,13 @@ export function AchievementsSection() {
                             {achievement.date}
                           </span>
                         </div>
-                        
+
                         <div className="prose prose-sm dark:prose-invert max-w-none">
                           <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
                             {achievement.description}
                           </p>
                         </div>
-                        
+
                         <div className="mt-4 pt-4 border-t border-border/30">
                           <button
                             onClick={(e) => {
@@ -172,4 +179,3 @@ export function AchievementsSection() {
     </section>
   );
 }
-

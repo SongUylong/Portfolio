@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { TextParticle } from "@/components/ui/text-particle";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import profileImg from "@/public/uylongsong.png";
 import { TypewriterCycle } from "@/components/ui/typewriter-cycle";
 import { StarBorder } from "@/components/ui/star-border";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
@@ -58,12 +59,11 @@ export function SocialLinks() {
 export function Description() {
   const developerTitles = [
     "Full Stack Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "React Developer",
-    "Next.js Developer",
-    "TypeScript Developer",
-    "Web Developer"
+    "Next.js & Nuxt.js Developer",
+    "NestJS & Laravel Engineer",
+    "AI & EdTech Innovator",
+    "MIS @ Paragon IU",
+    "TypeScript Specialist",
   ];
 
   return (
@@ -86,17 +86,8 @@ export function NameDemo() {
   const { theme } = useTheme();
   const router = useRouter();
 
-  const downloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/UylongSong.pdf';
-    link.download = 'Uylong Song.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const handleContactMe = () => {
-    router.push('/contact');
+    router.push("/contact");
   };
 
   return (
@@ -121,7 +112,7 @@ export function NameDemo() {
       >
         <Image
           width={192}
-          src="/uylongsong.png"
+          src={profileImg}
           height={192}
           alt={"uylong"}
           className="rounded-full object-cover w-48 h-48 border border-foreground/20"
@@ -129,22 +120,17 @@ export function NameDemo() {
       </StarBorder>
 
       <Description />
-      <span className="text-center inline-block py-1.5 px-3 rounded-lg md:text-lg font-semibold text-foreground mb-5">
-  Full-stack developer who loves turning ideas into real impact. Adaptable, open to new opportunities.
-</span>
+      <span className="text-center inline-block py-1.5 px-3 rounded-lg md:text-lg font-semibold text-foreground mb-5 max-w-2xl">
+        Designing interfaces, architecting APIs, and shipping features.
+        Full-Stack Developer turning ideas into real-world impact.
+      </span>
 
       <div className="flex space-x-4 mb-5">
         <button
           onClick={handleContactMe}
-          className="bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90 transition-colors font-medium"
+          className="bg-primary text-primary-foreground px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-colors font-medium shadow-md hover:shadow-lg"
         >
           Contact Me
-        </button>
-        <button
-          onClick={downloadCV}
-          className="bg-secondary text-secondary-foreground px-4 py-2 rounded hover:bg-secondary/90 transition-colors font-medium"
-        >
-          Download CV
         </button>
       </div>
       <div className="flex justify-center mb-5">
@@ -180,4 +166,4 @@ export function HeroSection() {
       <NameDemo />
     </section>
   );
-} 
+}
