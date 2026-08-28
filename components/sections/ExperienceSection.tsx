@@ -26,6 +26,7 @@ import {
   Calendar,
   Cpu,
   Layers,
+  Bot,
 } from "lucide-react";
 import Image from "next/image";
 // Technology Icons
@@ -158,7 +159,7 @@ const experienceEntries = [
     image: "/sala-tech-logo-1024x1024.png",
   },
   {
-    position: "Backend Developer Intern",
+    position: "Backend Developer & RAG Engineer Intern",
     company: "Paragon International University",
     dates: "Nov 2025 ~ Present",
     technologies: [
@@ -166,6 +167,11 @@ const experienceEntries = [
         name: "Laravel",
         icon: <SiLaravel className="w-3 h-3" />,
         color: "bg-red-600 text-white",
+      },
+      {
+        name: "RAG & AI",
+        icon: <Bot className="w-3 h-3" />,
+        color: "bg-violet-600 text-white",
       },
       {
         name: "PHP",
@@ -192,16 +198,16 @@ const experienceEntries = [
       <BulletPointCycle
         points={[
           {
+            icon: <Bot className="w-4 h-4 text-violet-500" />,
+            text: "Engineered Retrieval-Augmented Generation (RAG) pipelines using Neuron AI (PHP) on Paragon IU's ERP system for intelligent information retrieval.",
+          },
+          {
             icon: <Server className="w-4 h-4 text-red-500" />,
-            text: "Specialized in Laravel backend development, building and maintaining APIs for university internal systems.",
+            text: "Specialized in Laravel backend development, building and maintaining robust APIs for university internal systems.",
           },
           {
             icon: <Database className="w-4 h-4 text-orange-500" />,
-            text: "Managed databases and implemented server-side logic to support university applications.",
-          },
-          {
-            icon: <Code className="w-4 h-4 text-blue-500" />,
-            text: "Developed scalable backend solutions following modern MVC framework best practices.",
+            text: "Managed databases, query optimization, and implemented server-side logic to support university applications.",
           },
           {
             icon: <Shield className="w-4 h-4 text-green-500" />,
