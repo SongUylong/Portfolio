@@ -43,7 +43,7 @@ import {
   SiLaravel,
   SiFacebook,
   SiInstagram,
-  SiNuxtdotjs,
+  SiNuxt,
   SiNestjs,
   SiPostgresql,
   SiPrisma,
@@ -108,7 +108,7 @@ const experienceEntries = [
     technologies: [
       {
         name: "Nuxt.js",
-        icon: <SiNuxtdotjs className="w-3 h-3" />,
+        icon: <SiNuxt className="w-3 h-3" />,
         color: "bg-emerald-600 text-white",
       },
       {
