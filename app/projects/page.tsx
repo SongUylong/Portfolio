@@ -191,7 +191,7 @@ export default function ProjectsSection() {
             alt={`Slide ${idx + 1}`}
             width={600}
             height={400}
-            className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
+            className={`absolute top-0 left-0 w-full h-full object-cover object-top transition-opacity duration-500 ${
               idx === currentIndex ? "opacity-100" : "opacity-0"
             }`}
             onError={(e) => {
@@ -486,7 +486,7 @@ export default function ProjectsSection() {
                       alt={project.name}
                       width={600}
                       height={400}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                       onError={(e) => {
                         e.currentTarget.src =
                           "https://placehold.co/600x400/E0E0E0/333333?text=Image+Error";
