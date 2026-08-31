@@ -45,6 +45,8 @@ import {
   SiPrisma,
   SiGreensock,
   SiCloudflare,
+  SiSupabase,
+  SiApple,
 } from "react-icons/si";
 import { TbApi, TbCloudRain, TbBrush, TbPaint } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
@@ -147,6 +149,11 @@ export default function ProjectsSection() {
       Vite: <SiVite className="w-3 h-3 text-purple-500" />,
       ESLint: <SiEslint className="w-3 h-3 text-indigo-600" />,
       "Cloudflare R2": <SiCloudflare className="w-3 h-3 text-orange-500" />,
+      Cloudflare: <SiCloudflare className="w-3 h-3 text-orange-500" />,
+      Supabase: <SiSupabase className="w-3 h-3 text-emerald-500" />,
+      "iOS / App Store": <SiApple className="w-3 h-3 text-black dark:text-white" />,
+      "Backend Architecture": <TbApi className="w-3 h-3 text-blue-500" />,
+      "Scale & High Availability": <TbApi className="w-3 h-3 text-purple-500" />,
       Prisma: <SiPrisma className="w-3 h-3 text-indigo-600" />,
       "Adobe Photoshop": <TbPaint className="w-3 h-3 text-[#31A8FF]" />,
       "Adobe Illustrator": <TbBrush className="w-3 h-3 text-[#FF9A00]" />,
@@ -204,6 +211,42 @@ export default function ProjectsSection() {
   };
 
   const projects = [
+    {
+      name: "Amnan Preahthor (អំណានព្រះធម៌)",
+      badge: "LIVE APP • 5K+ DOWNLOADS",
+      description:
+        "Official Khmer Dharma audio streaming mobile application (ស្ដាប់ព្រះធម៌ដោយគ្មានការរំខាន) initiated and organized by Samdech Preah Oddom Vongsa Kou Sopheap, generously sponsored by Lok Vann Hong and Lok Srey Imphan Vanndy. Served as Backend Developer architecting high-performance Supabase database, authentication, and Cloudflare infrastructure to reliably serve audio streams and scale to 5,000+ active downloads across iOS.",
+      technologies: [
+        "Backend Architecture",
+        "Supabase",
+        "Cloudflare",
+        "Scale & High Availability",
+        "iOS / App Store",
+      ],
+      imageUrl: "/amnan_preahthor_1.jpg",
+      images: [
+        "/amnan_preahthor_1.jpg",
+        "/amnan_preahthor_2.jpg",
+        "/amnan_preahthor_3.jpg",
+      ],
+      liveUrl: "https://apps.apple.com/kh/app/amnan-preahthor/id6767218899",
+    },
+    {
+      name: "GAICA Level 2 — Global AI Competency Assessment",
+      badge: "NEW PUBLICATION",
+      description:
+        "Official 20-page comprehensive Student Study Manual and Interactive Curriculum for the Global AI Competency Assessment (Level 2: Apply) published by GYLDC & GSLDC (2026). Features deep modules on algorithmic feed curation, filter bubbles, hallucinations, meaningful human oversight, fairness, and ML system trade-offs.",
+      technologies: [
+        "Interactive HTML5",
+        "CSS Paged Media",
+        "AI & LLMs",
+        "Curriculum Design",
+        "Next.js",
+        "TypeScript",
+      ],
+      imageUrl: "/1.jpg",
+      liveUrl: "/gaica",
+    },
     {
       name: "Bac.ai",
       badge: "TOP 3 WINNER",
