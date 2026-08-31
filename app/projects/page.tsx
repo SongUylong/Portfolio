@@ -232,22 +232,6 @@ export default function ProjectsSection() {
       liveUrl: "https://apps.apple.com/kh/app/amnan-preahthor/id6767218899",
     },
     {
-      name: "GAICA Level 2 — Global AI Competency Assessment",
-      badge: "NEW PUBLICATION",
-      description:
-        "Official 20-page comprehensive Student Study Manual and Interactive Curriculum for the Global AI Competency Assessment (Level 2: Apply) published by GYLDC & GSLDC (2026). Features deep modules on algorithmic feed curation, filter bubbles, hallucinations, meaningful human oversight, fairness, and ML system trade-offs.",
-      technologies: [
-        "Interactive HTML5",
-        "CSS Paged Media",
-        "AI & LLMs",
-        "Curriculum Design",
-        "Next.js",
-        "TypeScript",
-      ],
-      imageUrl: "/1.jpg",
-      liveUrl: "/gaica",
-    },
-    {
       name: "Bac.ai",
       badge: "TOP 3 WINNER",
       description:
