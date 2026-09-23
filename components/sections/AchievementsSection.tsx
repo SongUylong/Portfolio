@@ -6,6 +6,13 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const achievements = [
   {
+    title: "AI Technical Coach — AI in Motion (AIM)",
+    date: "Aug – Sep 2026",
+    description:
+      "Selected as an AI Technical Coach for the AI in Motion (AIM) Build Week & MVP Sprint, initiated by FirstWave and supported by the Ministry of Post and Telecommunications (MPTC). Mentored selected startup founders (chosen from 295 applicant teams) at CADT Innovation Center on rapid MVP prototyping, vibe-coding, software architecture, and deploying generative AI tools.",
+    image: "/aim_coach.jpg",
+  },
+  {
     title: "Bac.ai — Top 3 Winner, UniPreneur Season 3",
     date: "Aug 2025",
     description:
