@@ -43,6 +43,7 @@ export default function ResizeNavbar() {
   const navLinks = [
     { name: "Home", link: "/" },
     { name: "Projects", link: "/projects" },
+    { name: "CV", link: "/Song_Uylong_CV.pdf" },
     { name: "Contact", link: "/contact" },
   ];
 
@@ -80,7 +81,21 @@ export default function ResizeNavbar() {
                     <nav className="flex flex-col gap-6 py-6">
                       {navLinks.map((link) => {
                         const isActive = pathname === link.link;
-                        return (
+                        const isExternal = link.link.endsWith(".pdf") || link.link.startsWith("http");
+                        return isExternal ? (
+                          <a
+                            key={link.name}
+                            href={link.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xl p-4 pl-8 font-medium hover:text-primary transition-colors flex items-center justify-between"
+                          >
+                            <span>{link.name}</span>
+                            <span className="text-xs bg-primary/20 text-primary px-2.5 py-1 rounded-full font-semibold">
+                              PDF
+                            </span>
+                          </a>
+                        ) : (
                           <Link
                             key={link.name}
                             href={link.link}

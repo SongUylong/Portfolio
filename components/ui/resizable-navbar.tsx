@@ -138,6 +138,30 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     >
       {items.map((item, idx) => {
         const isActive = pathname === item.link;
+        const isExternal = item.link.endsWith(".pdf") || item.link.startsWith("http");
+
+        if (isExternal) {
+          return (
+            <a
+              onMouseEnter={() => setHovered(idx)}
+              onClick={onItemClick}
+              className={`relative px-4 py-2 text-foreground hover:text-primary transition-colors`}
+              key={`link-${idx}`}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {hovered === idx && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 h-full w-full rounded-full bg-primary/20"
+                />
+              )}
+              <span className="relative z-20">{item.name}</span>
+            </a>
+          );
+        }
+
         return (
           <Link
             onMouseEnter={() => setHovered(idx)}

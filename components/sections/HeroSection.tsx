@@ -132,6 +132,29 @@ export function NameDemo() {
         >
           Contact Me
         </button>
+        <a
+          href="/Song_Uylong_CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border border-border bg-background hover:bg-accent hover:text-accent-foreground text-foreground px-6 py-2.5 rounded-lg transition-colors font-medium shadow-md hover:shadow-lg flex items-center gap-2 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 h-4 transition-transform group-hover:scale-110"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+          <span>CV</span>
+        </a>
       </div>
       <div className="flex justify-center mb-5">
         <SocialLinks />
